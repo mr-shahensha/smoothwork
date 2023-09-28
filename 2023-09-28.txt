@@ -1,0 +1,14 @@
+Time : 08:41:24
+SQLSTATE[HY000] [1049] Unknown database 'pdo_all'
+/shahensha/smoothwork/
+
+Time : 08:41:23
+SQLSTATE[HY000] [1049] Unknown database 'pdo_all'
+/shahensha/smoothwork/
+
+Time : 08:41:22
+SQLSTATE[HY000] [1049] Unknown database 'pdo_all'
+/shahensha/smoothwork/
+
+Time : 08:38:47
+SQLSTATE[HY000] [1049] Unknown database 'pdo_all'
