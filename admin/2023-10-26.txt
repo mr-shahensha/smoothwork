@@ -1,0 +1,28 @@
+Time : 12:25:10
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
+Raw SQL : INSERT INTO main_signup (username,password,pass,name,fnm,mob,edt,edtm,userlevel) VALUES (:username,:password,:pass,:name,:fnm,:mob,:edt,:edtm,:userlevel)
+/shahensha/smoothwork/admin/joinreq_acrj.php?val=5&sl=2&pg=
+
+Time : 12:24:55
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
+Raw SQL : INSERT INTO main_signup (username,password,pass,name,fnm,mob,edt,edtm,userlevel) VALUES (:username,:password,:pass,:name,:fnm,:mob,:edt,:edtm,:userlevel)
+/shahensha/smoothwork/admin/joinreq_acrj.php?val=5&sl=2&pg=
+
+Time : 12:20:14
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
+Raw SQL : INSERT INTO main_signup (username,password,pass,name,fnm,mob,edt,edtm,userlevel) VALUES (:username,:password,:pass,:name,:fnm,:mob,:edt,:edtm,:userlevel)
+/shahensha/smoothwork/admin/joinreq_acrj.php?val=5&sl=2&pg=
+
+Time : 12:04:38
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
+Raw SQL : INSERT INTO main_signup (username,password,pass,name,fnm,mob,edt,edtm,userlevel) VALUES (:username,:password,:pass,:name,:fnm,:mob,:edt,:edtm,:userlevel)
+/shahensha/smoothwork/admin/joinreq_acrj.php?val=5&sl=2&pg=
+
+Time : 12:04:18
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
+Raw SQL : INSERT INTO main_signup (username,password,pass,name,fnm,mob,edt,edtm,userlevel) VALUES (:username,:password,:pass,:name,:fnm,:mob,:edt,:edtm,:userlevel)
+/shahensha/smoothwork/admin/joinreq_acrj.php?val=5&sl=2&pg=
+
+Time : 12:02:23
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
+Raw SQL : INSERT INTO main_signup (username,password,pass,name,fnm,mob,edt,edtm,userlevel) VALUES (:username,:password,:pass,:name,:fnm,:mob,:edt,:edtm,:userlevel)

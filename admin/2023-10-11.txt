@@ -1,0 +1,15 @@
+Time : 11:54:52
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null
+Raw SQL : INSERT INTO main_signup (username,password,pass,name,fnm,mob,edt,edtm,userlevel) VALUES (:username,:password,:pass,:name,:fnm,:mob,:edt,:edtm,:userlevel)
+/shahensha/smoothwork/admin/joinreq_acrj.php?val=5&sl=1&pg=
+
+Time : 09:34:10
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= :' at line 1
+Raw SQL : UPDATE main_signup SET  = :
+/shahensha/smoothwork/submit_pages.php
+
+Time : 09:33:41
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= :' at line 1
+Raw SQL : UPDATE main_signup SET  = :
+/shahensha/smoothwork/submit_pages.php
+

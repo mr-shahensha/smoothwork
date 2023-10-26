@@ -14,17 +14,26 @@ $_POST["edtm"] = date('Y-m-d H:i:s');
 
 
 $tbl_nm = $_POST['table_name'];
-$page_name = $_POST['page_name'];
-
+$page_nm = $_POST['page_name'];
+if ($page_nm == "bissignup.php") {
+$page_name = '../bissignup.php';
+}else{
+	$page_name = $page_nm ;
+}
 if (isset($_POST["sl"]) != "") {
 	$fld['sl'] = $_POST['sl'];
 	$op['sl'] = "!=, and ";
 }
 
-if ($page_name == "category.php") {
+if ($page_name == "category.php" && isset($_POST["sl"]) == "") {
 	$fld['cat_nm'] = $_POST['cat_nm'];
-	$op['cat_nm'] = "=,  ";
+	$op['cat_nm'] = "=, and ";
 }
+
+
+$fld['sl'] = "0";
+$op['sl'] = ">,  ";
+
 $fld1['sl'] = "0";
 $op1['sl'] = ">,  ";
 
@@ -37,14 +46,20 @@ $msg = "";
 if ($count > 0) {
 	$msg = "Data Already Exists!!!";
 }
+if($page_name != "bissignup.php"){
+	$msg = "";
+}
 if ($msg == "") {
 
-	if ($page_name == "category.php") {
+	if ($page_name == "category.php" && isset($_POST["sl"]) == "") {
 		$_POST['cat_id'] = 'cat' . $mcount;
 	}
+	if ($page_name == "bissignup.php") {
+		$_POST['bissid']=date('y').$_POST['servcat'].$count;
+	   
+	   }
 
-
-	$exception = array('submit_form', 'table_name', 'page_name', 'rttl', 'sttl', 'tttl', 'uttl', 'vttl', 'cpass', 'old_pass', 'ttl4', 'ttl5');
+	$exception = array('submit','submit_form', 'table_name', 'page_name', 'rttl', 'sttl', 'tttl', 'uttl', 'vttl', 'cpass', 'old_pass', 'ttl4', 'ttl5','eby');
 	$field = array_except($_POST, $exception);
 	//print_r($_POST);
 	$pdo_obj  = new Init_Table();
@@ -52,6 +67,7 @@ if ($msg == "") {
 	foreach ($field as $key => $vl) {
 		$pdo_obj->$key = $vl;
 	}
+
 	if (isset($_POST["sl"]) != "") {
 		$pdo_obj->save();
 		$msg = "Data Update Successfully...";

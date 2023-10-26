@@ -1,0 +1,23 @@
+Time : 07:41:09
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'cat_nm = ?  and' at line 1
+Raw SQL : SELECT count(*) FROM main_service_category WHERE sl > :sl    cat_nm = :cat_nm  and  
+/shahensha/smoothwork/admin/submit_pages.php
+
+Time : 07:34:29
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'cat_nm = ?  and' at line 1
+Raw SQL : SELECT count(*) FROM main_service_category WHERE sl > :sl    cat_nm = :cat_nm  and  
+/shahensha/smoothwork/admin/submit_pages.php
+
+Time : 07:27:04
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'cat_nm = ?  and' at line 1
+Raw SQL : SELECT count(*) FROM main_service_category WHERE sl > :sl    cat_nm = :cat_nm  and  
+/shahensha/smoothwork/admin/submit_pages.php
+
+Time : 07:20:06
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'cat_nm = ?  and' at line 1
+Raw SQL : SELECT count(*) FROM main_service_category WHERE sl > :sl    cat_nm = :cat_nm  and  
+/shahensha/smoothwork/admin/submit_pages.php
+
+Time : 07:19:11
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'sl > ?' at line 1
+Raw SQL : SELECT count(*) FROM main_service_category WHERE cat_nm = :cat_nm    sl > :sl    
