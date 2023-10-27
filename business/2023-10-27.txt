@@ -1,3 +1,8 @@
+Time : 12:58:10
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'bftm1' in 'field list'
+Raw SQL : INSERT INTO main_order_cart (bast,bsnm,bftm1,bttm1,bprc,bpby,eby,edt,edtm) VALUES (:bast,:bsnm,:bftm1,:bttm1,:bprc,:bpby,:eby,:edt,:edtm)
+/shahensha/smoothwork/business/submit_pages.php
+
 Time : 08:43:24
 SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sast' cannot be null
 Raw SQL : INSERT INTO main_service_setup (snm,sprc,sftm,sttm,sdsc,eby,edt,edtm,sast) VALUES (:snm,:sprc,:sftm,:sttm,:sdsc,:eby,:edt,:edtm,:sast)

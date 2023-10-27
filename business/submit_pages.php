@@ -34,7 +34,19 @@ if ($page_nm  == "service_setup.php") {
 
 	$_POST['sttm'] = $timeFormatted2;
 }
+if ($page_nm  == "abookings.php") {
+	$time = $_POST['bftm1'];
+	$timestamp = strtotime($time);
+	$timeFormatted = date("h:i A", $timestamp);
 
+	$_POST['bftm'] = $timeFormatted;
+	//sttm
+	$time2 = $_POST['bttm1'];
+	$timestamp2 = strtotime($time2);
+	$timeFormatted2 = date("h:i A", $timestamp2);
+
+	$_POST['bttm'] = $timeFormatted2;
+}
 
 if ($page_nm == "bissignup.php") {
 	$page_name = '../bissignup.php';
@@ -62,7 +74,12 @@ $list  = new Init_Table();
 $list->set_table($tbl_nm, "sl");
 $count = $list->row_count_custom($fld, $op, '', array('sl' => 'ASC'));
 $mcount = $list->row_count_custom($fld1, $op1, '', array('sl' => 'ASC'));
-
+if ($page_nm  == "service_setup.php") {
+$_POST['s_id']='s'.$count;
+}
+if ($page_nm  == "abookings.php") {
+$_POST['cart_id']='crt'.$count;
+}
 $msg = "";
 if ($count > 0) {
 	$msg = "Data Already Exists!!!";
@@ -79,7 +96,7 @@ if ($msg == "") {
 		$_POST['bissid'] = date('y') . $_POST['servcat'] . $count;
 	}
 
-	$exception = array('submit', 'submit_form', 'table_name', 'page_name', 'rttl', 'sttl', 'tttl', 'uttl', 'vttl', 'cpass', 'old_pass', 'ttl4', 'ttl5', 'sast1', 'sftm1', 'sttm1');
+	$exception = array('submit', 'submit_form', 'table_name', 'page_name', 'rttl', 'sttl', 'tttl', 'uttl', 'vttl', 'cpass', 'old_pass', 'ttl4', 'ttl5', 'sast1', 'sftm1', 'sttm1','bftm1','bttm1');
 	$field = array_except($_POST, $exception);
 	//print_r($_POST);
 	$pdo_obj  = new Init_Table();
