@@ -31,7 +31,7 @@ $user_array = explode(',', $userr);
 					<div class="form-group col-md-12">
 						<label>
 							<b>
-								<font color="#ed2618"></font>Select Users :
+								<font color="#ed2618"></font>Select Users:
 							</b>
 						</label>
 						<select id="user" name="user[]" class="form-control select2" style="width:100%" multiple="multiple">

@@ -13,12 +13,33 @@ $_POST["edt"] = date('Y-m-d');
 $_POST["edtm"] = date('Y-m-d H:i:s');
 
 
+
 $tbl_nm = $_POST['table_name'];
 $page_nm = $_POST['page_name'];
+
+if ($page_nm  == "service_setup.php") {
+	$sast = $_POST['sast1'];
+
+	$_POST['sast'] = implode(',', $sast);
+
+	$time = $_POST['sftm1'];
+	$timestamp = strtotime($time);
+	$timeFormatted = date("h:i A", $timestamp);
+
+	$_POST['sftm'] = $timeFormatted;
+	//sttm
+	$time2 = $_POST['sttm1'];
+	$timestamp2 = strtotime($time2);
+	$timeFormatted2 = date("h:i A", $timestamp2);
+
+	$_POST['sttm'] = $timeFormatted2;
+}
+
+
 if ($page_nm == "bissignup.php") {
-$page_name = '../bissignup.php';
-}else{
-	$page_name = $page_nm ;
+	$page_name = '../bissignup.php';
+} else {
+	$page_name = $page_nm;
 }
 if (isset($_POST["sl"]) != "") {
 	$fld['sl'] = $_POST['sl'];
@@ -46,7 +67,7 @@ $msg = "";
 if ($count > 0) {
 	$msg = "Data Already Exists!!!";
 }
-if($page_name != "bissignup.php"){
+if ($page_name != "bissignup.php") {
 	$msg = "";
 }
 if ($msg == "") {
@@ -55,11 +76,10 @@ if ($msg == "") {
 		$_POST['cat_id'] = 'cat' . $mcount;
 	}
 	if ($page_name == "bissignup.php") {
-		$_POST['bissid']=date('y').$_POST['servcat'].$count;
-	   
-	   }
+		$_POST['bissid'] = date('y') . $_POST['servcat'] . $count;
+	}
 
-	$exception = array('submit','submit_form', 'table_name', 'page_name', 'rttl', 'sttl', 'tttl', 'uttl', 'vttl', 'cpass', 'old_pass', 'ttl4', 'ttl5');
+	$exception = array('submit', 'submit_form', 'table_name', 'page_name', 'rttl', 'sttl', 'tttl', 'uttl', 'vttl', 'cpass', 'old_pass', 'ttl4', 'ttl5', 'sast1', 'sftm1', 'sttm1');
 	$field = array_except($_POST, $exception);
 	//print_r($_POST);
 	$pdo_obj  = new Init_Table();

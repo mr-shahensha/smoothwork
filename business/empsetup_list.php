@@ -39,7 +39,7 @@ $path1 = "";
 			<td><?php echo $value['eadrs']; ?></td>
 			<td><?php echo $value['ees']; ?></td>
 			<td>
-				<a href="test_edt.php?sl=<?php // echo base64_encode($sl); ?>"><input type="button" class="btn btn-primary btn-xs" value="Edit">
+				<a href="empsetup_edt.php?sl=<?php echo base64_encode($sl); ?>" class="btn btn-primary btn-xs" target="_blank">Edit
 				</a>
 			</td>
 		</tr>

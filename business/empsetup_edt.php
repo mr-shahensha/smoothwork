@@ -1,24 +1,20 @@
 <?php
 ini_set("display_errors", "1");
 error_reporting(E_ALL);
-if (isset($_REQUEST['pnm'])) {
-    $page_title = base64_decode($_REQUEST['pnm']);
-} else {
-    $page_title = "Employee Setup ";
-}
+
+$page_title = "Test Name";
 include "membersonly.inc.php";
 $Members  = new isLogged(1);
 include "header.php";
-function searchForId($id, $array, $chkfld, $sendfld)
-{
+$sld = base64_decode($_REQUEST['sl']);
+$adtl  = new Init_Table();
+$adtl->set_table("main_employee_setup", "sl");
+$row = $adtl->all();
+$row2 = $adtl->search(array('sl' => $sld));
+$pdo = new MainPDO();
 
-    foreach ($array as $val) {
-        if ($val[$chkfld] == $id) {
-            return $val[$sendfld];
-        }
-    }
-    return 'root';
-}
+
+
 ?>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
@@ -50,7 +46,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active"><?php echo $page_title; ?></li>
+            <li class="active"><?php echo $page_title; ?> </li>
         </ol>
     </section>
     <!-- Main content -->
@@ -60,22 +56,22 @@ function searchForId($id, $array, $chkfld, $sendfld)
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo $page_title; ?></h3>
+                        <h3 class="box-title"><?php echo $page_title; ?> Edit</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                     <div class="box-body">
-                        <form class="form-bordered" action="submit_pages.php" method="POST">
+                        <form class="form-bordered" action="all_submit_page.php" method="POST">
 
                             <div class="row">
-                                <div class="form-group col-md-12">
+                            <div class="form-group col-md-12">
                                     <div class="form-group col-md-6">
                                         <label>
                                             <b>
                                                 <font color="#ed2618"></font>Name:
                                             </b>
                                         </label>
-                                        <input type="text" id="enm" name="enm" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="enm" name="enm" class="form-control" value="<?php echo $row2[0]['enm'];?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>
@@ -83,7 +79,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Number:
                                             </b>
                                         </label>
-                                        <input type="text" id="enum" name="enum" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="enum" name="enum" class="form-control" value="<?php echo $row2[0]['enum'];?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -93,7 +89,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Adhaar Number:
                                             </b>
                                         </label>
-                                        <input type="text" id="eadnum" name="eadnum" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="eadnum" name="eadnum" class="form-control" value="<?php echo $row2[0]['eadnum'];?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>
@@ -101,7 +97,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Experience in years:
                                             </b>
                                         </label>
-                                        <input type="text" id="eex" name="eex" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="eex" name="eex" class="form-control" value="<?php echo $row2[0]['eex'];?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -111,7 +107,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Adress:
                                             </b>
                                         </label>
-                                        <input type="text" id="eadrs" name="eadrs" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="eadrs" name="eadrs" class="form-control" value="<?php echo $row2[0]['eadrs'];?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>
@@ -119,36 +115,23 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Estimated salary:
                                             </b>
                                         </label>
-                                        <input type="text" id="ees" name="ees" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="ees" name="ees" class="form-control" value="<?php echo $row2[0]['ees'];?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12" align="right">
                                     <br>
-                                    <input type="submit" class="btn btn-success" value="SUBMIT">
+                                    <input type="submit" class="btn btn-warning" value="Update">
                                 </div>
                             </div>
                             <input type="hidden" name="table_name" value="main_employee_setup">
                             <input type="hidden" name="page_name" value="empsetup.php">
+                            <input type="hidden" name="sl" value="<?php echo $sld; ?>">
 
                         </form>
                     </div>
                     <!-- /.box body -->
                 </div>
 
-                <!-- /.box -->
-            </div>
-            <div class="col-md-12">
-                <!-- general form elements -->
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title"><?php echo $page_title; ?> List</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <div class="box-body" id="show">
-                    </div>
-                    <!-- /.box body -->
-                </div>
                 <!-- /.box -->
             </div>
         </div>
@@ -160,6 +143,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
 
     <strong>Copyright &copy; 2019-2020 </strong> All rights reserved. Designed & Developed By <a href="http://onnetsolution.com">Onnet Solution Infotech Pvt. Ltd.</a>.
 </footer>
+
 
 </div>
 <!-- ./wrapper -->
@@ -205,16 +189,11 @@ function searchForId($id, $array, $chkfld, $sendfld)
 <link rel="stylesheet" href="chosen.css">
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script src="prism.js" type="text/javascript" charset="utf-8"></script>
+
 <script>
-    function show() {
-        $('#show').load("empsetup_list.php").fadeIn('fast');
-    }
 
-
-    $(document).ready(function() {
-        show();
-    });
 </script>
+
 
 </body>
 

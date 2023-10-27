@@ -1,0 +1,13 @@
+Time : 08:43:24
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'sast' cannot be null
+Raw SQL : INSERT INTO main_service_setup (snm,sprc,sftm,sttm,sdsc,eby,edt,edtm,sast) VALUES (:snm,:sprc,:sftm,:sttm,:sdsc,:eby,:edt,:edtm,:sast)
+/shahensha/smoothwork/business/submit_pages.php
+
+Time : 08:07:45
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'snm' in 'field list'
+Raw SQL : INSERT INTO main_test (snm,sprc,sftm,sttm,sast,sdsc,eby,edt,edtm) VALUES (:snm,:sprc,:sftm,:sttm,:sast,:sdsc,:eby,:edt,:edtm)
+/shahensha/smoothwork/business/submit_pages.php
+
+Time : 06:52:40
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ttl' in 'where clause'
+Raw SQL : SELECT count(*) FROM main_employee_setup WHERE sl != :sl and ttl = :ttl  
