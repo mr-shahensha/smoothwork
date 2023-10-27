@@ -1,3 +1,11 @@
+Time : 14:21:45
+SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty
+/shahensha/smoothwork/business/abookings_edt.php?stat=3&sl=MQ==
+
+Time : 14:21:27
+SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty
+/shahensha/smoothwork/business/abookings_edt.php?stat=3&sl=MQ==
+
 Time : 12:58:10
 SQLSTATE[42S22]: Column not found: 1054 Unknown column 'bftm1' in 'field list'
 Raw SQL : INSERT INTO main_order_cart (bast,bsnm,bftm1,bttm1,bprc,bpby,eby,edt,edtm) VALUES (:bast,:bsnm,:bftm1,:bttm1,:bprc,:bpby,:eby,:edt,:edtm)

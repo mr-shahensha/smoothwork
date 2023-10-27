@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2023 at 09:17 AM
+-- Generation Time: Oct 27, 2023 at 01:16 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -120,7 +120,10 @@ INSERT INTO `main_log` (`sl`, `username`, `ip`, `intime`, `laccessed`) VALUES
 (31, '3214569870', '127.0.0.1', '2023-10-27 06:40:33 AM', '2023-10-27 06:40:33 AM'),
 (32, 'admin', '127.0.0.1', '2023-10-27 07:29:42 AM', '2023-10-27 07:29:42 AM'),
 (33, '3214569870', '::1', '2023-10-27 07:33:42 AM', '2023-10-27 07:33:42 AM'),
-(34, '3214569870', '127.0.0.1', '2023-10-27 07:46:49 AM', '2023-10-27 07:46:49 AM');
+(34, '3214569870', '127.0.0.1', '2023-10-27 07:46:49 AM', '2023-10-27 07:46:49 AM'),
+(35, 'admin', '127.0.0.1', '2023-10-27 09:26:49 AM', '2023-10-27 09:26:49 AM'),
+(36, '3214569870', '127.0.0.1', '2023-10-27 09:28:52 AM', '2023-10-27 09:28:52 AM'),
+(37, 'admin', '::1', '2023-10-27 11:39:33 AM', '2023-10-27 11:39:33 AM');
 
 -- --------------------------------------------------------
 
@@ -151,20 +154,48 @@ CREATE TABLE `main_menu` (
 INSERT INTO `main_menu` (`sl`, `mnm`, `page`, `rmsl`, `ordr`, `adlvl`, `icon`, `user`, `isall`, `stat`, `eby`, `edt`, `edtm`) VALUES
 (1, 'Dashboard', 'index.php', 0, 0, '', 'fa-home', '-1,5', 1, 0, 'admin', '2019-06-28', '2019-06-28 08:07:12 AM'),
 (2, 'Setup', '#', 0, 1, '', 'fa-globe', '-1,5', 0, 0, 'admin', '2019-06-28', '2019-06-28 08:07:24 AM'),
-(3, 'View', '#', 0, 4, '', 'fa-edit', '-1', 0, 0, 'admin', '2019-06-28', '2019-06-28 08:08:03 AM'),
+(3, 'View', '#', 0, 4, '', 'fa-edit', '-1,5', 0, 0, 'admin', '2019-06-28', '2019-06-28 08:08:03 AM'),
 (4, 'Config', '#', 0, 10, '', 'fa-cog', '-1', 0, 0, 'admin', '2019-06-28', '2019-06-28 08:08:17 AM'),
 (11, 'Test Entry', 'test.php', 2, 1, '', 'fa-edit', '-1', 0, 0, 'admin', '2023-01-06', '2023-01-06 06:14:27 AM'),
 (12, 'Menu Setup', 'menu_setup.php', 4, 1, '', 'fa-edit', '-1', 0, 0, 'admin', '2019-06-28', '2019-06-28 08:08:42 AM'),
 (156, 'Photo Upload', 'test_photo.php', 2, 2, '', 'fa-edit', '-1', 0, 0, 'admin', '2023-09-27', '2023-09-27 13:19:00 PM'),
 (157, 'Category', 'category.php', 2, 0, '', 'fa-edit', '-1', 0, 0, 'admin', '2023-09-28', '2023-09-28 13:55:57 PM'),
-(158, 'Action', '#', 0, 3, '', 'fa-edit', '-1', 0, 0, 'admin', '2023-09-29', '2023-09-29 06:23:18 AM'),
+(158, 'Action', '#', 0, 3, '', 'fa-edit', '-1,5', 0, 0, 'admin', '2023-09-29', '2023-09-29 06:23:18 AM'),
 (159, 'Service Setup', 'service_setup.php', 2, 4, '', 'fa-edit', '5', 0, 0, 'admin', '2023-10-09', '2023-10-09 07:27:30 AM'),
 (160, 'Employee Setup', 'empsetup.php', 2, 3, '', 'fa-edit', '5', 0, 0, 'admin', '2023-10-09', '2023-10-09 07:51:29 AM'),
-(161, 'View Service', 'view_service.php', 3, 1, '', 'fa-edit', '5', 0, 0, 'admin', '2023-10-09', '2023-10-09 07:56:50 AM'),
-(162, 'Order', 'b_order.php', 3, 2, '', 'fa-edit', '5', 0, 0, 'admin', '2023-10-09', '2023-10-09 08:02:31 AM'),
 (164, 'Joining Request', 'joinreq.php', 3, 1, '', 'fa-edit', '-1', 0, 0, 'admin', '2023-10-11', '2023-10-11 08:04:49 AM'),
 (165, 'Listen Companies', 'listcomp.php', 3, 2, '', 'fa-edit', '-1', 0, 0, 'admin', '2023-10-11', '2023-10-11 08:06:20 AM'),
-(169, 'Business setup', 'bissetup.php', 2, 6, '', 'fa-edit', '5', 0, 0, 'admin', '2023-10-26', '2023-10-26 13:43:32 PM');
+(170, 'View Services', 'vservice.php', 3, 0, '', 'fa-edit', '5', 0, 0, 'admin', '2023-10-27', '2023-10-27 09:28:27 AM'),
+(171, 'Booking', 'abookings.php', 158, 0, '', 'fa-edit', '5', 0, 0, 'admin', '2023-10-27', '2023-10-27 11:40:01 AM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `main_order_cart`
+--
+
+CREATE TABLE `main_order_cart` (
+  `sl` int(11) NOT NULL,
+  `cart_id` varchar(255) NOT NULL,
+  `bast` varchar(255) NOT NULL,
+  `bsnm` varchar(255) NOT NULL,
+  `bftm` varchar(255) NOT NULL,
+  `bttm` varchar(255) NOT NULL,
+  `bprc` varchar(255) NOT NULL,
+  `bpby` varchar(255) NOT NULL,
+  `stat` varchar(255) NOT NULL DEFAULT '0',
+  `edt` varchar(255) NOT NULL,
+  `edtm` varchar(255) NOT NULL,
+  `eby` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `main_order_cart`
+--
+
+INSERT INTO `main_order_cart` (`sl`, `cart_id`, `bast`, `bsnm`, `bftm`, `bttm`, `bprc`, `bpby`, `stat`, `edt`, `edtm`, `eby`) VALUES
+(1, '', 'Sourav Das', 's0', '', '', '210', 'Mithun', '', '2023-10-27', '2023-10-27 13:06:44', '3214569870'),
+(2, 'crt1', 'Sourav Das', 's0', '04:07 AM', '07:04 AM', '210', 'Mithun', '0', '2023-10-27', '2023-10-27 13:13:58', '3214569870');
 
 -- --------------------------------------------------------
 
@@ -232,6 +263,7 @@ INSERT INTO `main_service_provider` (`sl`, `bissid`, `cname`, `oname`, `servcat`
 
 CREATE TABLE `main_service_setup` (
   `sl` int(11) NOT NULL,
+  `s_id` varchar(255) NOT NULL,
   `snm` varchar(255) NOT NULL,
   `sprc` varchar(255) NOT NULL,
   `sftm` varchar(255) NOT NULL,
@@ -248,8 +280,8 @@ CREATE TABLE `main_service_setup` (
 -- Dumping data for table `main_service_setup`
 --
 
-INSERT INTO `main_service_setup` (`sl`, `snm`, `sprc`, `sftm`, `sttm`, `sast`, `sdsc`, `staus`, `edt`, `edtm`, `eby`) VALUES
-(1, 'Mobile repearing', '300', '02:00 AM', '03:00 AM', 'Sourav Das,Rohit Das', 'We repear gerat mobile', '0', '2023-10-27', '2023-10-27 09:17:07', '3214569870');
+INSERT INTO `main_service_setup` (`sl`, `s_id`, `snm`, `sprc`, `sftm`, `sttm`, `sast`, `sdsc`, `staus`, `edt`, `edtm`, `eby`) VALUES
+(1, 's0', 'Mobile repearing', '300', '02:00 AM', '03:00 AM', 'Sourav Das,Rohit Das', 'We repear gerat mobile', '0', '2023-10-27', '2023-10-27 09:17:07', '3214569870');
 
 -- --------------------------------------------------------
 
@@ -296,8 +328,8 @@ CREATE TABLE `main_signup` (
 --
 
 INSERT INTO `main_signup` (`sl`, `username`, `password`, `pass`, `name`, `fnm`, `lnm`, `mob`, `mailadres`, `reg`, `council`, `state`, `actnum`, `userlevel`, `signupdate`, `lastlogin`, `ip`, `lastloginfail`, `numloginfail`, `noofdownload`, `reqscheme`, `dev_id`, `stat`, `otp`, `noofreq`, `reqdt`, `reqdtm`, `sms`, `eby`, `edt`, `edtm`) VALUES
-(1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'Administrator', '', '1234567890', 'test@ons.com', '', '', '', 0, -1, NULL, '2023-10-27 07:29:42 AM', '103.86.23.37', NULL, 0, 0, '', '', 1, '', 0, '0000-00-00', '0000-00-00 00:00:00', 1, 'admin', '2019-06-20', '2019-06-20 09:33:47 AM'),
-(289, '3214569870', '123', '202cb962ac59075b964b07152d234b70', 'Microsft', 'bill gates', '', '3214569870', NULL, '', '', '', 0, 5, NULL, '2023-10-27 07:46:49 AM', '', NULL, 0, 0, '', '', 0, '', 0, '0000-00-00', '0000-00-00 00:00:00', 0, '', '2023-10-26', '2023-10-26 15:32:11');
+(1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'Administrator', '', '1234567890', 'test@ons.com', '', '', '', 0, -1, NULL, '2023-10-27 11:39:33 AM', '103.86.23.37', NULL, 0, 0, '', '', 1, '', 0, '0000-00-00', '0000-00-00 00:00:00', 1, 'admin', '2019-06-20', '2019-06-20 09:33:47 AM'),
+(289, '3214569870', '123', '202cb962ac59075b964b07152d234b70', 'Microsft', 'bill gates', '', '3214569870', NULL, '', '', '', 0, 5, NULL, '2023-10-27 09:28:52 AM', '', NULL, 0, 0, '', '', 0, '', 0, '0000-00-00', '0000-00-00 00:00:00', 0, '', '2023-10-26', '2023-10-26 15:32:11');
 
 -- --------------------------------------------------------
 
@@ -401,6 +433,12 @@ ALTER TABLE `main_menu`
   ADD PRIMARY KEY (`sl`);
 
 --
+-- Indexes for table `main_order_cart`
+--
+ALTER TABLE `main_order_cart`
+  ADD PRIMARY KEY (`sl`);
+
+--
 -- Indexes for table `main_service_category`
 --
 ALTER TABLE `main_service_category`
@@ -462,13 +500,19 @@ ALTER TABLE `main_employee_setup`
 -- AUTO_INCREMENT for table `main_log`
 --
 ALTER TABLE `main_log`
-  MODIFY `sl` double NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `sl` double NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `main_menu`
 --
 ALTER TABLE `main_menu`
-  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
+
+--
+-- AUTO_INCREMENT for table `main_order_cart`
+--
+ALTER TABLE `main_order_cart`
+  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `main_service_category`
@@ -486,7 +530,7 @@ ALTER TABLE `main_service_provider`
 -- AUTO_INCREMENT for table `main_service_setup`
 --
 ALTER TABLE `main_service_setup`
-  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `main_signup`

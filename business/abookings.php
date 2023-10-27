@@ -251,7 +251,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
 <script src="prism.js" type="text/javascript" charset="utf-8"></script>
 <script>
     function show() {
-        $('#show').load("test_list.php").fadeIn('fast');
+        $('#show').load("abookings_list.php").fadeIn('fast');
     }
 
     function act(sl, val, tbl) {
