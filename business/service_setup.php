@@ -150,7 +150,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                             $path1 = "";
                                             foreach ($row as $value) {
                                             ?>
-                                                <option value="<?php echo $value['enm']; ?>"><?php echo $value['enm']; ?></option>
+                                                <option value="<?php echo $value['eid']; ?>"><?php echo $value['enm']; ?></option>
                                             <?php
                                             }
                                             ?>

@@ -98,10 +98,11 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                     <div class="form-group col-md-6">
                                         <label>
                                             <b>
-                                                <font color="#ed2618"></font>Experience in years:
+                                                <font color="#ed2618"></font>Joining date:
                                             </b>
                                         </label>
-                                        <input type="text" id="eex" name="eex" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        
+                                        <input style="width:100%" required type="date" name="jdt" id="jdt"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">

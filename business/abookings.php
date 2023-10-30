@@ -72,40 +72,14 @@ function searchForId($id, $array, $chkfld, $sendfld)
 
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <div class="form-group col-md-6">
-                                        <label>
-                                            <b>
-                                                <font color="#ed2618"></font>Assign to:
-                                            </b>
-                                        </label>
-                                        <select name="bast" class="form-control" size="1" id="bast" tabindex="2">
-                                            <option value="">---SELECT---</option>
-                                                 <?php
 
-                                            $fld1['sl'] = '0';
-                                            $op1['sl'] = ">, ";
-
-                                            $list1  = new Init_Table();
-                                            $list1->set_table("main_employee_setup", "sl");
-                                            $row = $list1->search_custom($fld1, $op1, '', array('sl' => 'ASC'));
-                                            $path1 = "";
-                                            foreach ($row as $value) {
-                                            ?>
-                                                <option value="<?php echo $value['enm']; ?>"><?php echo $value['enm']; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-
-                                        </select>
-
-                                    </div>
                                     <div class="form-group col-md-6">
                                         <label>
                                             <b>
                                                 <font color="#ed2618"></font>Service name :
                                             </b>
                                         </label>
-                                        <select name="bsnm" class="form-control" size="1" id="bsnm" tabindex="2">
+                                        <select name="servnm" class="form-control" size="1" id="servnm" tabindex="2"  onchange="ast(this.value)">
                                             <option value="">---SELECT---</option>
                                             <?php
 
@@ -126,7 +100,17 @@ function searchForId($id, $array, $chkfld, $sendfld)
 
                                         </select>
                                     </div>
+                                    <div class="form-group col-md-6">
+                                        <label>
+                                            <b>
+                                                <font color="#ed2618"></font>Assign to:
+                                            </b>
+                                        </label>
+                                    <div id="showast">
 
+                                    </div>
+
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <div class="form-group col-md-6">
@@ -135,7 +119,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>From time:
                                             </b>
                                         </label>
-                                        <input type="time" name="bftm1" id="bftm" class="form-control" required>
+                                        <input type="time" name="ftm1" id="ftm" class="form-control" required>
 
                                     </div>
                                     <div class="form-group col-md-6">
@@ -144,7 +128,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>To time :
                                             </b>
                                         </label>
-                                        <input type="time" name="bttm1" id="bttm" class="form-control" required>
+                                        <input type="time" name="ttm1" id="ttm" class="form-control" required>
 
                                     </div>
                                 </div>
@@ -155,7 +139,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Price :
                                             </b>
                                         </label>
-                                        <input type="text" id="bprc" name="bprc" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id=" " name="price" class="form-control" value="" style="width:100%" placeholder="Type here" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>
@@ -163,7 +147,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Purchased by :
                                             </b>
                                         </label>
-                                        <input type="text" id="bpby" name="bpby" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="prchby" name="prchby" class="form-control" value="" style="width:100%" placeholder="Type here" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12" align="right">
@@ -254,22 +238,16 @@ function searchForId($id, $array, $chkfld, $sendfld)
         $('#show').load("abookings_list.php").fadeIn('fast');
     }
 
-    function act(sl, val, tbl) {
-        if (confirm('ARE YOU SURE?')) {
-            $('#show').load('act_deact.php?sl=' + sl + '&val=' + val + '&tbl=' + tbl).fadeIn('fast');
-        }
+    function ast(srv){
+$('showast').load('abookings_ast.php?srv='+srv).fadeIn('fast').
     }
-    $(document).ready(function() {
-        show();
-    });
 
-    
-        $('#bast').chosen({
-        no_results_text: "Oops, nothing found!",
-    });  $('#bsnm').chosen({
+    $('#assign').chosen({
         no_results_text: "Oops, nothing found!",
     });
-
+    $('#servnm').chosen({
+        no_results_text: "Oops, nothing found!",
+    });
 </script>
 
 </body>

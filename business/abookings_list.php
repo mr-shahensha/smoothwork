@@ -40,18 +40,29 @@ $path1 = "";
 	?>
 		<tr>
 			<td><?php echo $cnt; ?></td>
-			<td><?php echo $value['bast']; ?></td>
-			<td><?php echo $value['bsnm']; ?></td>
-			<td><?php echo $value['bftm']; ?></td>
-			<td><?php echo $value['bttm']; ?></td>
-			<td><?php echo $value['bprc']; ?></td>
-			<td><?php echo $value['bpby']; ?></td>
+			<td><?php echo $value['assign']; ?></td>
+			<td><?php
+$fld11['s_id'] = $value['servnm'];
+$op11['s_id'] = "=, ";
+
+$list11  = new Init_Table();
+$list11->set_table("main_service_setup", "sl");
+$row1 = $list11->search_custom($fld11, $op11, '', array('sl' => 'ASC'));
+foreach ($row1 as $value1) {}
+			 echo $value1['snm']; 
+			 
+			 ?></td>
+			<td><?php echo $value['ftm']; ?></td>
+			<td><?php echo $value['ttm']; ?></td>
+			<td><?php echo $value['price']; ?></td>
+			<td><?php echo $value['prchby']; ?></td>
 			<td>
-				<a href="abookings_edt.php?stat=1&sl=<?php echo base64_encode($sl); ?>" class="btn btn-primary btn-xs" >Edit
-				</a>
-                <a href="abookings_edt.php?stat=2&sl=<?php echo base64_encode($sl); ?>" class="btn btn-success btn-xs" >Order
-				</a><a href="abookings_edt.php?stat=3&sl=<?php echo base64_encode($sl); ?>" class="btn btn-danger btn-xs" >Delete
-				</a>
+				<input type="hidden" name="" id="nsl" value="<?php echo $sl; ?>">
+				<div id="show<?php echo $sl; ?>">
+				<input type="button" value="Edit" class="btn btn-primary btn-xs" onclick="actn('1','<?php echo  $sl; ?>')">
+				<input type="button" value="Order" class="btn btn-success btn-xs" onclick="actn('2','<?php echo  $sl; ?>')">
+				<input type="button" value="Delete" class="btn btn-danger btn-xs" onclick="actn('3','<?php echo  $sl; ?>')">
+			</div>
 			</td>
 		</tr>
 	<?php
@@ -59,3 +70,20 @@ $path1 = "";
 	?>
 
 </table>
+
+<script>
+	function actn(stat,sl){
+		//var nsl=document.getElementById('nsl').value;
+if(stat=='3')
+{
+	let text = "Are you sure ?";
+  if (confirm(text) == true) {
+$('#show'+sl).load('abookings_edt.php?sl='+sl+'&stat='+stat).fadeIn('fast');
+  } 
+}else if(stat=='2')
+{
+	$('#show'+sl).load('abookings_edt.php?sl='+sl+'&stat='+stat).fadeIn('fast');
+
+}
+}
+</script>

@@ -15,8 +15,9 @@ $path1 = "";
 <table class="table">
 	<tr>
 		<th width="10%">SL</th>
-		<th width="15%">Name</th>
-		<th width="15%">Number</th>
+		<th width="10%">Name</th>
+		<th width="10%">Employee ID</th>
+		<th width="10%">Number</th>
 		<th width="10%">Adhaar Number</th>
 		<th width="10%">Experience</th>
 		<th width="20%">Adress</th>
@@ -33,9 +34,10 @@ $path1 = "";
 		<tr>
 			<td><?php echo $cnt; ?></td>
 			<td><?php echo $value['enm']; ?></td>
+			<td><?php echo $value['eid']; ?></td>
 			<td><?php echo $value['enum']; ?></td>
 			<td><?php echo $value['eadnum']; ?></td>
-			<td><?php echo $value['eex']; ?></td>
+			<td><?php echo $value['jdt']; ?></td>
 			<td><?php echo $value['eadrs']; ?></td>
 			<td><?php echo $value['ees']; ?></td>
 			<td>
