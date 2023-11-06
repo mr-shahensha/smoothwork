@@ -1,0 +1,8 @@
+Time : 10:40:08
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'service_setup.php' doesn't exist
+Raw SQL : SELECT count(*) FROM service_setup.php WHERE sl > :sl    
+/shahensha/smoothwork/business/submit_pages.php
+
+Time : 10:39:23
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'service_setup.php' doesn't exist
+Raw SQL : SELECT count(*) FROM service_setup.php WHERE sl > :sl    

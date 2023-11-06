@@ -5,6 +5,7 @@ include "membersonly.inc.php";
 $Members  = new isLogged(1);
 $s_id = $_REQUEST['srv'];
 
+if ($s_id != "") {
 
 
 ?>
@@ -21,14 +22,44 @@ $s_id = $_REQUEST['srv'];
     foreach ($row as $value) {}
 
     $string = $value['sast'];
-$nsast = explode(",", $string, 2);
-$i=strlen($nsast);
-while($i<0){
-
+    $nsast=array();
+     $nsast = explode(",", $string, 2);
+     $i=sizeof($nsast);
+    $x=0;
+    while($x<$i){
+   
     ?>
-        <option value="<?php echo $nsast[$i]; ?>"><?php echo $nsast[$i]; ?></option>
+        <option value="<?php echo $nsast[$x]; ?>"><?php
+        
+        $fld1x['eid'] = $nsast[$x] ;
+        $op1x['eid'] = "=, ";
+    
+        $list1x  = new Init_Table();
+        $list1x->set_table("main_employee_setup", "sl");
+        $rowx = $list1x->search_custom($fld1x, $op1x, '', array('sl' => 'ASC'));
+        $path1 = "";
+        foreach ($rowx as $valuex) {}
+
+        echo $valuex['enm']; ?></option>
   <?php 
-}$i++;
+ $x++;
+}
   ?>
 
 </select>
+
+
+<?php
+}else{
+  ?>
+<select name="assign" class="form-control" size="1" id="assign" tabindex="2">
+                                                <option value="">---SELECT---</option>
+                                            </select>
+  <?php
+}
+?>
+<script>
+      $('#assign').chosen({
+        no_results_text: "Oops, nothing found!",
+    });
+</script>

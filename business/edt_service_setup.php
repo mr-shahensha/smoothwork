@@ -1,10 +1,11 @@
 <?php
 ini_set("display_errors", "1");
+$sl = $_REQUEST['sl'];
 error_reporting(E_ALL);
 if (isset($_REQUEST['pnm'])) {
     $page_title = base64_decode($_REQUEST['pnm']);
 } else {
-    $page_title = "Service Setup";
+    $page_title = "Edit Service Setup";
 }
 include "membersonly.inc.php";
 $Members  = new isLogged(1);
@@ -88,6 +89,17 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 foreach ($rowx as $valuex) {
                                                 }
                                                 echo $valuex['cat_nm'];
+
+                                                $fld1['sl'] = $sl;
+                                                $op1['sl'] = "=, ";
+
+                                                $list1  = new Init_Table();
+                                                $list1->set_table("main_service_setup", "sl");
+                                                $row2 = $list1->search_custom($fld1, $op1, '', array('sl' => 'ASC'));
+                                                $ar = array();
+                                                $userr = $row2[0]['sast'];
+                                                $ar = explode(',', $userr);
+
                                                 ?> </span></h3>
                                     </label>
                                     <br>
@@ -99,7 +111,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Service name :
                                             </b>
                                         </label>
-                                        <input type="text" id="snm" name="snm" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="snm" name="snm" class="form-control" value="<?php echo $row2[0]['snm']; ?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>
@@ -107,7 +119,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Price :
                                             </b>
                                         </label>
-                                        <input type="text" id="sprc" name="sprc" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="sprc" name="sprc" class="form-control" value="<?php echo $row2[0]['sprc']; ?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -117,7 +129,12 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>From time:
                                             </b>
                                         </label>
-                                        <input type="time" name="sftm1" id="sftm" class="form-control" required>
+                                        <?php 
+                                        $val=$row2[0]['sftm'];
+                                        $p = array();
+                                        $p = explode(" ", $val);
+                                        ?>
+                                        <input type="time" name="sftm1" id="sftm" class="form-control" value="<?php echo $p[0];?>" required>
 
                                     </div>
                                     <div class="form-group col-md-6">
@@ -126,7 +143,12 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>To time :
                                             </b>
                                         </label>
-                                        <input type="time" name="sttm1" id="sttm" class="form-control" required>
+                                        <?php 
+                                        $val1=$row2[0]['sttm'];
+                                        $p1 = array();
+                                        $p1 = explode(" ", $val1);
+                                        ?>
+                                        <input type="time" name="sttm1" id="sttm" class="form-control" value="<?php echo $p1[0];?>" required>
 
                                     </div>
                                 </div>
@@ -141,30 +163,34 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                         <select id="sast" name="sast1[]" class="form-control select2" style="width:100%" multiple="multiple">
                                             <?php
 
-                                            $fld1['sl'] = '0';
-                                            $op1['sl'] = ">, ";
+                                            $fld1y['sl'] = '0';
+                                            $op1y['sl'] = ">, ";
 
-                                            $list1  = new Init_Table();
-                                            $list1->set_table("main_employee_setup", "sl");
-                                            $row = $list1->search_custom($fld1, $op1, '', array('sl' => 'ASC'));
-                                            $path1 = "";
-                                            foreach ($row as $value) {
+                                            $list1y  = new Init_Table();
+                                            $list1y->set_table("main_employee_setup", "sl");
+                                            $rowy = $list1y->search_custom($fld1y, $op1y, '', array('sl' => 'ASC'));
+                                            $path1y = "";
+                                            foreach ($rowy as $valuey) {
                                             ?>
-                                                <option value="<?php echo $value['eid']; ?>"><?php echo $value['enm']; ?></option>
+                                                <option value="<?php echo $valuey['eid']; ?>" <?php
+                                                                                                if (in_array($valuey['eid'], $ar)) {
+                                                                                                    echo 'selected';
+                                                                                                }
+                                                                                                ?>><?php echo $valuey['enm']; ?></option>
                                             <?php
                                             }
                                             ?>
                                         </select>
 
                                     </div>
-                                    
+
                                     <div class="form-group col-md-6">
                                         <label>
                                             <b>
                                                 <font color="#ed2618"></font>Duration ( in minutes):
                                             </b>
                                         </label>
-                                        <input type="text" name="sdr" id="sdr" class="form-control" required>
+                                        <input type="text" name="sdr" id="sdr" class="form-control" required value="<?php echo $row2[0]['sdr']; ?>">
 
                                     </div>
                                 </div>
@@ -175,7 +201,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Description :
                                             </b>
                                         </label>
-                                        <textarea required id="sdsc" name="sdsc" rows="4" cols="50" class="form-control"></textarea>
+                                        <textarea required id="sdsc" name="sdsc" rows="4" cols="50" class="form-control"><?php echo $row2[0]['sdsc']; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12" align="right">
@@ -185,6 +211,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                             </div>
                             <input type="hidden" name="table_name" value="main_service_setup">
                             <input type="hidden" name="page_name" value="service_setup.php">
+                            <input type="hidden" name="sl" value="<?php echo $sl; ?>">
 
                         </form>
                     </div>
@@ -249,19 +276,6 @@ function searchForId($id, $array, $chkfld, $sendfld)
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script src="prism.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    function show() {
-        $('#show').load("test_list.php").fadeIn('fast');
-    }
-
-    function act(sl, val, tbl) {
-        if (confirm('ARE YOU SURE?')) {
-            $('#show').load('act_deact.php?sl=' + sl + '&val=' + val + '&tbl=' + tbl).fadeIn('fast');
-        }
-    }
-    $(document).ready(function() {
-        show();
-    });
-
     $('.select2').select2();
 </script>
 

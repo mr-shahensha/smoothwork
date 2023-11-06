@@ -54,6 +54,93 @@ function searchForId($id, $array, $chkfld, $sendfld)
         </ol>
     </section>
     <!-- Main content -->
+    <style>
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .banner-image {
+            background-image: url(https://images.unsplash.com/photo-1641326201918-3cafc641038e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80);
+            background-position: center;
+            background-size: cover;
+            height: 250px;
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.255)
+        }
+
+        h1 {
+            font-family: 'Righteous', sans-serif;
+            color: rgba(255, 255, 255, 0.98);
+            text-transform: uppercase;
+            font-size: 2.4rem;
+        }
+
+        p {
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+            text-align: center;
+            font-size: 0.8rem;
+            line-height: 150%;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .button-wrapper {
+            margin-top: 18px;
+        }
+
+        .btn {
+            border: none;
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 12px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .btn+.btn {
+            margin-left: 10px;
+        }
+
+        .outline {
+            background: transparent;
+            color: rgba(0, 212, 255, 0.9);
+            border: 1px solid rgba(0, 212, 255, 0.6);
+            transition: all .3s ease;
+
+        }
+
+        .outline:hover {
+            transform: scale(1.125);
+            color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.9);
+            transition: all .3s ease;
+        }
+
+        .fill {
+            background: rgba(0, 212, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
+            filter: drop-shadow(0);
+            font-weight: bold;
+            transition: all .3s ease;
+        }
+
+        .fill:hover {
+            transform: scale(1.125);
+            border-color: rgba(255, 255, 255, 0.9);
+            filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
+            transition: all .3s ease;
+        }
+    </style>
+
+
+
+
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -65,16 +152,112 @@ function searchForId($id, $array, $chkfld, $sendfld)
                     <!-- /.box-header -->
                     <!-- form start -->
                     <div class="box-body" id="show">
-                        <div class="card " style="width: 18rem;">
-                            <div class="card-body border border-primary">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                    
+                                        <div class="col-md-4">
+                                            <div class="wrapper">
+                                                <div class="banner-image"> </div>
+                                                <h1 class="text-center"> Toyota Supra</h1>
+                                                <p>Lorem ipsum dolor sit amet, <br />
+                                                    consectetur adipiscing elit.</p>
+                                            </div>
+                                            <div class="button-wrapper">
+                                                <button class="btn outline">DETAILS</button>
+                                                <button class="btn fill">BUY NOW</button>
+                                                <button class="btn fill">BUY NOW</button>
+                                            </div>
+                                        </div>
+                             
+                                 
+                                    </div>
+                                </div>
+
+
+
+
+
+                        <?php
+                        $fld1['sl'] = '0';
+                        $op1['sl'] = ">, ";
+
+                        $list1  = new Init_Table();
+                        $list1->set_table("main_service_setup", "sl");
+                        $row = $list1->search_custom($fld1, $op1, '', array('sl' => 'ASC'));
+                        $path1 = "";
+                        $cnt = 0;
+                        $pdo = new MainPDO();
+                        foreach ($row as $value) {
+                        ?>
+                            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                                <div class="card card-inverse card-info">
+                                    <img class="card-img-top" src="https://picsum.photos/200/150/?random">
+                                    <div class="card-block">
+                                        <figure class="profile profile-inline">
+                                            <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="">
+                                        </figure>
+                                        <h4 class="card-title"><?php echo $value['snm']; ?></h4>
+                                        <div class="card-text">
+                                            <?php echo $value['sdsc']; ?>
+                                            <?php
+                                            $string = $value['sast'];
+                                            $nsast = array();
+                                            $nsast = explode(",", $string, 2);
+                                            $i = sizeof($nsast);
+                                            $x = 0;
+                                            while ($x < $i) {
+                                                $fld1x['eid'] = $nsast[$x];
+                                                $op1x['eid'] = "=, ";
+
+                                                $list1x  = new Init_Table();
+                                                $list1x->set_table("main_employee_setup", "sl");
+                                                $rowx = $list1x->search_custom($fld1x, $op1x, '', array('sl' => 'ASC'));
+                                                $path1 = "";
+                                                foreach ($rowx as $valuex) {
+                                                }
+
+                                                echo "<p>" . $valuex['enm'] . "</p>";
+                                                $x++;
+                                            } ?>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="col-md-4 pr-50">
+                                            <a href="edt_service_setup.php?sl=<?php echo $value['sl']; ?>" target="_blank" class="btn btn-info btn-sm">Edit</a>
+                                        </div>
+                                        <div id="acdc<?php echo $value['sl']; ?>">
+                                            <?php
+                                            if ($value['status'] == 0) {
+                                            ?>
+                                                <div class="col-md-4 pr-50">
+                                                    <button class="btn btn-danger btn-sm" onclick="acdc('1',<?php echo $value['sl']; ?>)">Deactive</button>
+                                                </div>
+                                            <?php
+                                            } else if ($value['status'] == 1) {
+                                            ?>
+                                                <div class="col-md-4 pr-50">
+                                                    <button class="btn btn-success btn-sm" onclick="acdc('0',<?php echo $value['sl']; ?>)">Active</button>
+                                                </div>
+                                            <?php
+                                            }
+                                            ?>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm" onclick="delcard(<?php echo $value['sl']; ?>)">Delete</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        <?php
+                        }
+                        ?>
                     </div>
+
+
+
                     <!-- /.box body -->
                 </div>
                 <!-- /.box -->
@@ -91,6 +274,145 @@ function searchForId($id, $array, $chkfld, $sendfld)
 
 </div>
 <!-- ./wrapper -->
+
+
+<style>
+    html {
+        font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+    }
+
+    h5 {
+        font-size: 1.28571429em;
+        font-weight: 700;
+        line-height: 1.2857em;
+        margin: 0;
+    }
+
+    .card {
+        font-size: 1em;
+        overflow: hidden;
+        padding: 0;
+        border: none;
+        border-radius: .28571429rem;
+        box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    }
+
+    .card-block {
+        font-size: 1em;
+        position: relative;
+        margin: 0;
+        padding: 1em;
+        border: none;
+        border-top: 1px solid rgba(34, 36, 38, .1);
+        box-shadow: none;
+    }
+
+    .card-img-top {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .card-title {
+        font-size: 1.28571429em;
+        font-weight: 700;
+        line-height: 1.2857em;
+    }
+
+    .card-text {
+        clear: both;
+        margin-top: .5em;
+        color: rgba(0, 0, 0, .68);
+    }
+
+    .card-footer {
+        font-size: 1em;
+        position: static;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+        padding: .75em 1em;
+        color: rgba(0, 0, 0, .4);
+        border-top: 1px solid rgba(0, 0, 0, .05) !important;
+        background: #fff;
+    }
+
+    .card-inverse .btn {
+        border: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .profile {
+        position: absolute;
+        top: -12px;
+        display: inline-block;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: 25px;
+        height: 25px;
+        margin: 0;
+        border: 1px solid #fff;
+        border-radius: 50%;
+    }
+
+    .profile-avatar {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+
+    .profile-inline {
+        position: relative;
+        top: 0;
+        display: inline-block;
+    }
+
+    .profile-inline~.card-title {
+        display: inline-block;
+        margin-left: 4px;
+        vertical-align: top;
+    }
+
+    .text-bold {
+        font-weight: 700;
+    }
+
+    .meta {
+        font-size: 1em;
+        color: rgba(0, 0, 0, .4);
+    }
+
+    .meta a {
+        text-decoration: none;
+        color: rgba(0, 0, 0, .4);
+    }
+
+    .meta a:hover {
+        color: rgba(0, 0, 0, .87);
+    }
+</style>
+<script>
+    function acdc(v, sl) {
+        if (confirm("are you sure") == true) {
+            $('#acdc' + sl).load('clacdc.php?val=' + v + '&sl=' + sl).fadeIn('fast');
+            if (v == 0) {
+                alert('successfully deactivated');
+
+            } else {
+                alert('successfully activated');
+
+            }
+        }
+    }
+
+    function delcard(sl) {
+        if (confirm("are you sure") == true) {
+            $('#del' + sl).load('delcard.php?&sl=' + sl).fadeIn('fast');
+        }
+    }
+</script>
+
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>

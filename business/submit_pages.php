@@ -3,19 +3,24 @@ ini_set("display_errors", "1");
 error_reporting(E_ALL);
 include "membersonly.inc.php";
 $Members  = new isLogged(1);
-
+$tbl_nm = $_POST['table_name'];
+$page_nm = $_POST['page_name'];
 function array_except($array, $keys)
 {
 	return array_diff_key($array, array_flip((array) $keys));
 }
-$_POST["eby"] = $Members->User_Details->username;
+if ($page_nm == "empsetup.php") {
+	$_POST["eby"] = $Members->User_Details->name;
+}else{
+	$_POST["eby"] = $Members->User_Details->username;
+}
+
 $_POST["edt"] = date('Y-m-d');
 $_POST["edtm"] = date('Y-m-d H:i:s');
 
 
 
-$tbl_nm = $_POST['table_name'];
-$page_nm = $_POST['page_name'];
+
 
 if ($page_nm  == "service_setup.php") {
 	$sast = $_POST['sast1'];
@@ -95,6 +100,8 @@ if ($page_nm == "empsetup.php") {
 	if(strlen($mcount)=='1'){
 		$mmcount='0'.$mcount;
 	}
+	$comnm=$_POST["eby"];
+
 	$_POST['eid']='smw'.$newDate.$mmcount;
 }
 
@@ -130,6 +137,27 @@ if ($msg == "") {
 		$pdo_obj->create();
 		$msg = "Data Submited Successfully...";
 	}
+	if ($page_nm == "empsetup.php") {
+		$_P['username']=$_POST['eid'];
+		$_P['password']=$_POST['enum'];
+		$_P['name']=$_POST['enm'];
+		$_P['fnm']=$_POST['enm'];
+		$_P['mob']=$_POST['enum'];
+		$_P['userlevel']='10';
+		$_P['eby']=$_POST["eby"];
+		$_P['edt']=$_POST["edt"];
+		$_P['edtm']=$_POST["edtm"];
+		$_P['pass']=md5($_POST['enum']);
+
+		$pdo_obj1  = new Init_Table();
+		$pdo_obj1->set_table("main_signup", "sl");
+		foreach ($_P as $key1 => $vl1) {
+			$pdo_obj1->$key1 = $vl1;
+		}
+		$pdo_obj1->create();
+
+	}
+
 
 ?>
 	<script>

@@ -73,13 +73,13 @@ function searchForId($id, $array, $chkfld, $sendfld)
                             <div class="row">
                                 <div class="form-group col-md-12">
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label>
                                             <b>
                                                 <font color="#ed2618"></font>Service name :
                                             </b>
                                         </label>
-                                        <select name="servnm" class="form-control" size="1" id="servnm" tabindex="2"  onchange="ast(this.value)">
+                                        <select name="servnm" class="form-control" size="1" id="servnm" tabindex="2" onchange="ast(this.value)">
                                             <option value="">---SELECT---</option>
                                             <?php
 
@@ -99,55 +99,112 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                             ?>
 
                                         </select>
+                                        <p id="warnsrv" style="color:red;"></p>
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label>
                                             <b>
                                                 <font color="#ed2618"></font>Assign to:
                                             </b>
                                         </label>
-                                    <div id="showast">
-
+                                        <div id="showast">
+                                            <select name="assign" class="form-control" size="1" id="assign" tabindex="2">
+                                                <option value="">---SELECT---</option>
+                                            </select>
+                                        </div>
                                     </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            <b>
+                                                <font color="#ed2618"></font>Date:
+                                            </b>
+                                        </label>
+                                        <input type="date" id="bdt" name="bdt" class="form-control" value="<?php echo date('Y-m-d'); ?>">
 
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <div class="form-group col-md-6">
-                                        <label>
-                                            <b>
-                                                <font color="#ed2618"></font>From time:
-                                            </b>
-                                        </label>
-                                        <input type="time" name="ftm1" id="ftm" class="form-control" required>
+                                    <div id="showtm">
 
+                                        <div class="form-group col-md-3">
+                                            <label>
+                                                <b>
+                                                    <font color="#ed2618"></font>Starting service time:
+                                                </b>
+                                            </label>
+                                            <input type="time" id="" class="form-control" readonly>
+
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>
+                                                <b>
+                                                    <font color="#ed2618"></font>End service time :
+                                                </b>
+                                            </label>
+                                            <input type="time" id="est" class="form-control" readonly>
+
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label>
+                                                <b>
+                                                    <font color="#ed2618"></font>Duration (in minutes):
+                                                </b>
+                                            </label>
+                                            <input type="time" class="form-control" readonly>
+
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label>
-                                            <b>
-                                                <font color="#ed2618"></font>To time :
-                                            </b>
-                                        </label>
-                                        <input type="time" name="ttm1" id="ttm" class="form-control" required>
 
+                                    <div id="showprc">
+                                        <div class="form-group col-md-3">
+                                            <label>
+                                                <b>
+                                                    <font color="#ed2618"></font>Price :
+                                                </b>
+                                            </label>
+
+                                            <input type="text" id="" name="price" class="form-control" value="" style="width:100%" placeholder="Type here" readonly>
+
+
+                                        </div>
                                     </div>
                                 </div>
+
                                 <div class="form-group col-md-12">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-3">
                                         <label>
                                             <b>
-                                                <font color="#ed2618"></font>Price :
+                                                <font color="#ed2618"></font>Select time:
                                             </b>
                                         </label>
-                                        <input type="text" id=" " name="price" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="time" name="ftm1" id="ftm" class="form-control" onblur="caltime()">
+
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-3">
+                                        <label>
+                                            <b>
+                                                <font color="#ed2618"></font>To time:
+                                            </b>
+                                        </label>
+                                        <input type="text" name="ttm1" id="ttm" class="form-control">
+
+                                    </div>
+                                    <div class="form-group col-md-3">
                                         <label>
                                             <b>
                                                 <font color="#ed2618"></font>Purchased by :
                                             </b>
                                         </label>
-                                        <input type="text" id="prchby" name="prchby" class="form-control" value="" style="width:100%" placeholder="Type here" required>
+                                        <input type="text" id="prchby" name="prchby" class="form-control " value="" style="width:100%;" placeholder="Type here" required>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label>
+                                            <b>
+                                                <font color="#ed2618"></font>Purchasers Number :
+                                            </b>
+                                        </label>
+                                        <input type="text" id="prchnum" name="prchnum" class="form-control" value="" style="width:100%;" placeholder="Type here" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12" align="right">
@@ -234,12 +291,21 @@ function searchForId($id, $array, $chkfld, $sendfld)
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script src="prism.js" type="text/javascript" charset="utf-8"></script>
 <script>
+    function caltime(){
+        var stime=document.getElementById('ftm').value;
+        var sftime=document.getElementById('sst').value;
+        alert(stime)
+    }
+
     function show() {
         $('#show').load("abookings_list.php").fadeIn('fast');
     }
 
-    function ast(srv){
-$('showast').load('abookings_ast.php?srv='+srv).fadeIn('fast').
+    function ast(srv) {
+        $('#showast').load('abookings_ast.php?srv=' + srv).fadeIn('fast');
+        $('#showprc').load('abookings_prc.php?srv=' + srv).fadeIn('fast');
+        $('#showtm').load('abookings_tm.php?srv=' + srv).fadeIn('fast');
+    
     }
 
     $('#assign').chosen({

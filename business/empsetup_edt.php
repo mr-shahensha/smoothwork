@@ -94,10 +94,10 @@ $pdo = new MainPDO();
                                     <div class="form-group col-md-6">
                                         <label>
                                             <b>
-                                                <font color="#ed2618"></font>Experience in years:
+                                                <font color="#ed2618"></font>Joinging date:
                                             </b>
                                         </label>
-                                        <input type="text" id="eex" name="eex" class="form-control" value="<?php echo $row2[0]['eex'];?>" style="width:100%" placeholder="Type here" required>
+                                        <input type="date" id="jdt" name="jdt" class="form-control" value="<?php echo $row2[0]['jdt'];?>" style="width:100%" placeholder="Type here" required>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">

@@ -1,3 +1,0 @@
-Time : 07:36:10
-SQLSTATE[42S02]: Base table or view not found: 1146 Table 'pdo_all.main_banner' doesn't exist
-Raw SQL : UPDATE main_banner SET stat = :stat WHERE sl= :sl

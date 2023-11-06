@@ -44,7 +44,8 @@ $user_array = explode(',', $userr);
 								<option value="<?php echo $sl; ?>" <?php
 																	if (in_array($sl, $user_array)) {
 																		echo 'selected';
-																	} ?>> <?php echo $mnm; ?></option>
+																	}
+																	?>> <?php echo $mnm; ?></option>
 							<?php
 							}
 
