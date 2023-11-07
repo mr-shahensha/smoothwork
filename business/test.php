@@ -163,6 +163,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
   function show() {
     $('#show').load("test_list.php").fadeIn('fast');
   }
+
   function act(sl, val, tbl) {
     if (confirm('ARE YOU SURE?')) {
       $('#show').load('act_deact.php?sl=' + sl + '&val=' + val + '&tbl=' + tbl).fadeIn('fast');

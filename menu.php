@@ -9,10 +9,10 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.php" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.php" <?php if($pgnm=="home"){?> class="active"<?php }?>>Home</a></li>
+          <li><a href="about.php"<?php if($pgnm=="About US"){?> class="active"<?php }?>>About</a></li>
+          <li><a href="services.php" <?php if($pgnm=="Services"){?> class="active"<?php }?>>Services</a></li>
+          <li><a href="pricing.php"<?php if($pgnm=="Pricing"){?> class="active"<?php }?>>Pricing</a></li>
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i
                 class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
@@ -32,7 +32,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.php"<?php if($pgnm=="COntact US"){?> class="active"<?php }?>>Contact</a></li>
           <li><a class="get-a-quote" href="login.php">Login</a></li>
         </ul>
       </nav><!-- .navbar -->

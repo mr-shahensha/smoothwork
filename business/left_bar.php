@@ -11,7 +11,7 @@
 				$lb_fld['stat'] = 0;
 				$lb_op['stat'] = "=,AND (";
 
-				$lb_fld['isall'] = 1;
+				$lb_fld['isall'] = 0;
 				$lb_op['isall'] = "=,OR";
 				$lb_fld['user'] = $Members->User_Details->userlevel;
 				$lb_op['user'] = "FIND_IN_SET, )";

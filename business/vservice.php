@@ -55,7 +55,6 @@ function searchForId($id, $array, $chkfld, $sendfld)
     </section>
     <!-- Main content -->
     <style>
-
         .wrapper {
             width: 100%;
             height: 100%;
@@ -66,18 +65,12 @@ function searchForId($id, $array, $chkfld, $sendfld)
             background-image: url(https://images.unsplash.com/photo-1641326201918-3cafc641038e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80);
             background-position: center;
             background-size: cover;
-            height: 250px;
+            height: 300px;
             width: 100%;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.255)
         }
 
-        h1 {
-            font-family: 'Righteous', sans-serif;
-            color: rgba(255, 255, 255, 0.98);
-            text-transform: uppercase;
-            font-size: 2.4rem;
-        }
 
         p {
             color: #fff;
@@ -90,12 +83,13 @@ function searchForId($id, $array, $chkfld, $sendfld)
         }
 
         .button-wrapper {
-            margin-top: 18px;
+            /*margin-top: 18px; */
         }
+
 
         .btn {
             border: none;
-            padding: 12px 24px;
+            padding: 6px 12;
             border-radius: 24px;
             font-size: 12px;
             font-size: 0.8rem;
@@ -106,36 +100,52 @@ function searchForId($id, $array, $chkfld, $sendfld)
         .btn+.btn {
             margin-left: 10px;
         }
+		.fill {
+		  background: rgba(0, 212, 255, 0.9);
+		  color: rgba(255,255,255,0.95);
+		  filter: drop-shadow(0);
+		  font-weight: bold;
+		  transition: all .3s ease; 
+		}
 
-        .outline {
-            background: transparent;
-            color: rgba(0, 212, 255, 0.9);
-            border: 1px solid rgba(0, 212, 255, 0.6);
-            transition: all .3s ease;
+		.fill:hover{
+		  transform: scale(1.125);  
+		  border-color: rgba(255, 255, 255, 0.9);
+		  filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
+		  transition: all .3s ease;    
+		}
 
-        }
+		.fill2 {
+		  background: rgba(1, 147, 80, 0.9);
+		  color: rgba(255,255,255,0.95);
+		  filter: drop-shadow(0);
+		  font-weight: bold;
+		  transition: all .3s ease; 
+		}
 
-        .outline:hover {
-            transform: scale(1.125);
-            color: rgba(255, 255, 255, 0.9);
-            border-color: rgba(255, 255, 255, 0.9);
-            transition: all .3s ease;
-        }
+		.fill2:hover{
+		  transform: scale(1.125); 
+		  color: rgba(255,255,255,0.95);		  
+		  border-color: rgba(1, 147, 80, 0.9);
+		  filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
+		  transition: all .3s ease;    
+		}
+		.fill3 {
+		  background: rgba(232, 32, 7, 0.9);
+		  color: rgba(255,255,255,0.95);
+		  filter: drop-shadow(0);
+		  font-weight: bold;
+		  transition: all .3s ease; 
+		}
 
-        .fill {
-            background: rgba(0, 212, 255, 0.9);
-            color: rgba(255, 255, 255, 0.95);
-            filter: drop-shadow(0);
-            font-weight: bold;
-            transition: all .3s ease;
-        }
-
-        .fill:hover {
-            transform: scale(1.125);
-            border-color: rgba(255, 255, 255, 0.9);
-            filter: drop-shadow(0 10px 5px rgba(0, 0, 0, 0.125));
-            transition: all .3s ease;
-        }
+		.fill3:hover{
+		  transform: scale(1.125);
+		  color: rgba(255,255,255,0.95);		  
+		  border-color: rgba(232, 32, 7, 0.9);
+		  filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
+		  transition: all .3s ease;    
+		}
+       
     </style>
 
 
@@ -153,57 +163,33 @@ function searchForId($id, $array, $chkfld, $sendfld)
                     <!-- form start -->
                     <div class="box-body" id="show">
 
+                        <style>
+                            .ok {
+                                padding-bottom: 10px;
+                            }
+                        </style>
 
+                        <div class="row">
+                            <div class="col-md-12">
 
-                                <div class="row">
-                                    <div class="col-md-12">
+                                <?php
+                                $fld1['sl'] = '0';
+                                $op1['sl'] = ">, ";
 
-                                    
-                                        <div class="col-md-4">
-                                            <div class="wrapper">
-                                                <div class="banner-image"> </div>
-                                                <h1 class="text-center"> Toyota Supra</h1>
-                                                <p>Lorem ipsum dolor sit amet, <br />
-                                                    consectetur adipiscing elit.</p>
-                                            </div>
-                                            <div class="button-wrapper">
-                                                <button class="btn outline">DETAILS</button>
-                                                <button class="btn fill">BUY NOW</button>
-                                                <button class="btn fill">BUY NOW</button>
-                                            </div>
-                                        </div>
-                             
-                                 
-                                    </div>
-                                </div>
-
-
-
-
-
-                        <?php
-                        $fld1['sl'] = '0';
-                        $op1['sl'] = ">, ";
-
-                        $list1  = new Init_Table();
-                        $list1->set_table("main_service_setup", "sl");
-                        $row = $list1->search_custom($fld1, $op1, '', array('sl' => 'ASC'));
-                        $path1 = "";
-                        $cnt = 0;
-                        $pdo = new MainPDO();
-                        foreach ($row as $value) {
-                        ?>
-                            <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
-                                <div class="card card-inverse card-info">
-                                    <img class="card-img-top" src="https://picsum.photos/200/150/?random">
-                                    <div class="card-block">
-                                        <figure class="profile profile-inline">
-                                            <img src="https://picsum.photos/200/150/?random" class="profile-avatar" alt="">
-                                        </figure>
-                                        <h4 class="card-title"><?php echo $value['snm']; ?></h4>
-                                        <div class="card-text">
-                                            <?php echo $value['sdsc']; ?>
-                                            <?php
+                                $list1  = new Init_Table();
+                                $list1->set_table("main_service_setup", "sl");
+                                $row = $list1->search_custom($fld1, $op1, '', array('sl' => 'ASC'));
+                                $path1 = "";
+                                $cnt = 0;
+                                $pdo = new MainPDO();
+                                foreach ($row as $value) {
+                                ?>
+                                    <div class="col-md-4 ok">
+                                        <div class="wrapper ">
+                                            <div class="banner-image"> </div>
+                                            <h1 class="text-center" style="color:white;"> <?php echo $value['snm']; ?></h1>
+                                            <p><?php echo $value['sdsc']; ?></p>
+                                           &nbsp;<span style="color:white;">Service providers : </span> <?php
                                             $string = $value['sast'];
                                             $nsast = array();
                                             $nsast = explode(",", $string, 2);
@@ -220,40 +206,56 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 foreach ($rowx as $valuex) {
                                                 }
 
-                                                echo "<p>" . $valuex['enm'] . "</p>";
+                                                echo " <span style='color:yellow;'>" . $valuex['enm'] . " ,</span>";
                                                 $x++;
                                             } ?>
                                         </div>
+										
+										
+<!--<div class="button-wrapper" style="background-color:#bec0c4; padding:10px;"> 
+  <button class="btn fill">EDIT</button>
+    <button class="btn fill2">ACTIVE</button>
+    <button class="btn fill3">DELETE</button>
+  </div>-->		
+										
+										
+                                        <div class="button-wrapper">
+                                           <div id="del<?php echo $value['sl']; ?>" style="padding:10px;">
+												 <div class="col-md-4">
+													<a href="edt_service_setup.php?sl=<?php echo $value['sl']; ?>" target="_blank" class="btn btn-info ">Edit</a>
+												</div>
+											<div class="col-md-4">
+                                                <div id="acdc<?php echo $value['sl']; ?>">
+                                                    <?php
+                                                    if ($value['status'] == 0) {
+                                                    ?>
+                                                        <button class="btn btn-danger " onclick="acdc('1',<?php echo $value['sl']; ?>)">Deactive</button>
+                                                    <?php
+                                                    } else if ($value['status'] == 1) {
+                                                    ?>
+                                                        <button class="btn btn-success " onclick="acdc('0',<?php echo $value['sl']; ?>)">Active</button>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </div>
+                                                </div>
+												<div class="col-md-4">
+													<button class="btn btn-danger " onclick="delcard(<?php echo $value['sl']; ?>)">Delete</button>
+												</div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    </div>
-                                    <div class="card-footer">
-                                        <div class="col-md-4 pr-50">
-                                            <a href="edt_service_setup.php?sl=<?php echo $value['sl']; ?>" target="_blank" class="btn btn-info btn-sm">Edit</a>
-                                        </div>
-                                        <div id="acdc<?php echo $value['sl']; ?>">
-                                            <?php
-                                            if ($value['status'] == 0) {
-                                            ?>
-                                                <div class="col-md-4 pr-50">
-                                                    <button class="btn btn-danger btn-sm" onclick="acdc('1',<?php echo $value['sl']; ?>)">Deactive</button>
-                                                </div>
-                                            <?php
-                                            } else if ($value['status'] == 1) {
-                                            ?>
-                                                <div class="col-md-4 pr-50">
-                                                    <button class="btn btn-success btn-sm" onclick="acdc('0',<?php echo $value['sl']; ?>)">Active</button>
-                                                </div>
-                                            <?php
-                                            }
-                                            ?>
-                                        </div>
-                                        <button class="btn btn-primary btn-sm" onclick="delcard(<?php echo $value['sl']; ?>)">Delete</button>
-                                    </div>
-                                </div>
+                                <?php
+                                }
+                                ?>
                             </div>
-                        <?php
-                        }
-                        ?>
+                        </div>
+
+
+
+
+
                     </div>
 
 

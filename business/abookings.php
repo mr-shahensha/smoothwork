@@ -178,7 +178,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Select time:
                                             </b>
                                         </label>
-                                        <input type="time" name="ftm1" id="ftm" class="form-control" onblur="caltime()">
+                                        <input type="time" name="ftm1" id="ftm" class="form-control" required>
 
                                     </div>
                                     <div class="form-group col-md-3">
@@ -187,7 +187,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>To time:
                                             </b>
                                         </label>
-                                        <input type="text" name="ttm1" id="ttm" class="form-control">
+                                        <input type="time" name="ttm1" id="ttm" class="form-control" required>
 
                                     </div>
                                     <div class="form-group col-md-3">
@@ -291,11 +291,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script src="prism.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    function caltime(){
-        var stime=document.getElementById('ftm').value;
-        var sftime=document.getElementById('sst').value;
-        alert(stime)
-    }
+
 
     function show() {
         $('#show').load("abookings_list.php").fadeIn('fast');
@@ -305,7 +301,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
         $('#showast').load('abookings_ast.php?srv=' + srv).fadeIn('fast');
         $('#showprc').load('abookings_prc.php?srv=' + srv).fadeIn('fast');
         $('#showtm').load('abookings_tm.php?srv=' + srv).fadeIn('fast');
-    
+
     }
 
     $('#assign').chosen({

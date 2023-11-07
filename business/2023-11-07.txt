@@ -1,0 +1,48 @@
+Time : 11:22:57
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'bdt = ?   ORDER BY sl ASC' at line 1
+Raw SQL : SELECT * FROM main_order_cart WHERE assign = :assign   bdt = :bdt   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs_list.php?bdt=2023-11-07
+
+Time : 11:21:51
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'bdt = ?   ORDER BY sl ASC' at line 1
+Raw SQL : SELECT * FROM main_order_cart WHERE assign = :assign   bdt = :bdt   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs_list.php?bdt=2023-11-07
+
+Time : 11:21:41
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'bdt = ?   ORDER BY sl ASC' at line 1
+Raw SQL : SELECT * FROM main_order_cart WHERE assign = :assign   bdt = :bdt   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs_list.php?bdt=2023-11-07
+
+Time : 11:21:33
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'bdt = ?   ORDER BY sl ASC' at line 1
+Raw SQL : SELECT * FROM main_order_cart WHERE assign = :assign   bdt = :bdt   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs_list.php?bdt=2023-11-07
+
+Time : 11:21:08
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'bdt = ?   ORDER BY sl ASC' at line 1
+Raw SQL : SELECT * FROM main_order_cart WHERE assign = :assign   bdt = :bdt   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs_list.php?bdt=2023-11-06
+
+Time : 11:21:06
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'bdt = ?   ORDER BY sl ASC' at line 1
+Raw SQL : SELECT * FROM main_order_cart WHERE assign = :assign   bdt = :bdt   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs_list.php?bdt=2023-11-07
+
+Time : 11:21:05
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'bdt = ?   ORDER BY sl ASC' at line 1
+Raw SQL : SELECT * FROM main_order_cart WHERE assign = :assign   bdt = :bdt   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs_list.php?bdt=2023-11-07
+
+Time : 10:57:31
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'where clause'
+Raw SQL : SELECT * FROM main_service_setup WHERE username = :username   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs.php?pnm=T3JkZXI=
+
+Time : 10:24:47
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 's_id' in 'where clause'
+Raw SQL : SELECT * FROM main_order_cart WHERE s_id = :s_id   ORDER BY sl ASC
+/shahensha/smoothwork/business/eodrs.php?pnm=T3JkZXI=
+
+Time : 06:55:51
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'where clause'
+Raw SQL : SELECT * FROM main_employee_setup WHERE username = :username  ORDER BY sl ASC

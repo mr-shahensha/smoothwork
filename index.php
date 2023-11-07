@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>SmoothWork</title>
+<?php $pgnm="home";?>
+  <title>SmoothWork /<?php echo $pgnm;?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -16,9 +16,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +35,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-		<?php include("menu.php"); ?>
+      <?php include("menu.php"); ?>
     </div>
   </header><!-- End Header -->
   <!-- End Header -->
@@ -61,32 +59,28 @@
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                  class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Clients</p>
               </div>
             </div><!-- End Stats Item -->
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                  class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Projects</p>
               </div>
             </div><!-- End Stats Item -->
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
-                  class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Support</p>
               </div>
             </div><!-- End Stats Item -->
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-                  class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
                 <p>Workers</p>
               </div>
             </div><!-- End Stats Item -->
@@ -116,75 +110,35 @@
         </div>
       </div>
       <div class="row">
+      <?php
+ini_set("display_errors", "1");
+error_reporting(E_ALL);
+include "admin/common.php";
+include "admin/include.class.php";
+$fld1['sl'] = '0';
+$op1['sl'] = ">, ";
+
+$list1  = new Init_Table();
+$list1->set_table("main_service_category", "sl");
+$row = $list1->search_custom($fld1, $op1, 'limit 3', array('sl' => 'ASC'));
+$pdo = new MainPDO();
+foreach ($row as $value) {
+  $sl = $value['sl'];
+  $stat = $value['stat'];
+?>
         <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-          <div class="card text-dark card-has-bg click-col"
-            style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-            <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
-              alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+          <div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+            <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
             <div class="card-img-overlay d-flex flex-column">
               <div class="card-body">
-                <small class="card-meta mb-2">Thought Leadership</small>
-                <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Web Developmet Lorem
-                    Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                <small><i class="far fa-clock"></i> October 15, 2020</small>
-              </div>
-              <div class="card-footer">
-                <div class="media">
-                  <img class="mr-3 rounded-circle"
-                    src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80"
-                    alt="Generic placeholder image" style="max-width:50px">
-                  <div class="media-body">
-                    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                    <small>Director of UI/UX</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-          <div class="card text-dark card-has-bg click-col"
-            style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-            <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature"
-              alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
-            <div class="card-img-overlay d-flex flex-column">
-              <div class="card-body">
-                <small class="card-meta mb-2">Thought Leadership</small>
+                <small class="card-meta mb-2"><?php echo $value['cat_nm'];?></small>
                 <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner
-                    Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+                    Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
                 <small><i class="far fa-clock"></i> October 15, 2020</small>
               </div>
               <div class="card-footer">
                 <div class="media">
-                  <img class="mr-3 rounded-circle"
-                    src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80"
-                    alt="Generic placeholder image" style="max-width:50px">
-                  <div class="media-body">
-                    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                    <small>Director of UI/UX</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-          <div class="card text-dark card-has-bg click-col"
-            style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-            <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design"
-              alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
-            <div class="card-img-overlay d-flex flex-column">
-              <div class="card-body">
-                <small class="card-meta mb-2">Thought Leadership</small>
-                <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Design Studio Lorem
-                    Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                <small><i class="far fa-clock"></i> October 15, 2020</small>
-              </div>
-              <div class="card-footer">
-                <div class="media">
-                  <img class="mr-3 rounded-circle"
-                    src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80"
-                    alt="Generic placeholder image" style="max-width:50px">
+                  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
                   <div class="media-body">
                     <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
                     <small>Director of UI/UX</small>
@@ -195,191 +149,19 @@
           </div>
         </div>
 
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-          <div class="card text-dark card-has-bg click-col"
-            style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
-            <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
-              alt=" Lorem Ipsum Sit Amet Consectetur dipisi?">
-            <div class="card-img-overlay d-flex flex-column">
-              <div class="card-body">
-                <small class="card-meta mb-2">Thought Leadership</small>
-                <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">UI/UX Design Lorem
-                    Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                <small><i class="far fa-clock"></i> October 15, 2020</small>
-              </div>
-              <div class="card-footer">
-                <div class="media">
-                  <img class="mr-3 rounded-circle"
-                    src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80"
-                    alt="Generic placeholder image" style="max-width:50px">
-                  <div class="media-body">
-                    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                    <small>Director of UI/UX</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-          <div class="card text-dark card-has-bg click-col"
-            style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
-            <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature"
-              alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
-            <div class="card-img-overlay d-flex flex-column">
-              <div class="card-body">
-                <small class="card-meta mb-2">Thought Leadership</small>
-                <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner
-                    Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                <small><i class="far fa-clock"></i> October 15, 2020</small>
-              </div>
-              <div class="card-footer">
-                <div class="media">
-                  <img class="mr-3 rounded-circle"
-                    src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80"
-                    alt="Generic placeholder image" style="max-width:50px">
-                  <div class="media-body">
-                    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                    <small>Director of UI/UX</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-          <div class="card text-dark card-has-bg click-col"
-            style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
-            <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design"
-              alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
-            <div class="card-img-overlay d-flex flex-column">
-              <div class="card-body">
-                <small class="card-meta mb-2">Thought Leadership</small>
-                <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner
-                    Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                <small><i class="far fa-clock"></i> October 15, 2020</small>
-              </div>
-              <div class="card-footer">
-                <div class="media">
-                  <img class="mr-3 rounded-circle"
-                    src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80"
-                    alt="Generic placeholder image" style="max-width:50px">
-                  <div class="media-body">
-                    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
-                    <small>Director of UI/UX</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <?php
+}
+        ?>
       </div>
+      <b><a href="#" class="link-underline-info" style="margin-left:500px;">Explore more services &rarr;</a></b>
 
     </div>
   </section>
 
   <!--css-->
-  <style>
-
-h1{
-  color:#fff;
-}
-.lead{
-  color:#aaa;
-}
-
-.wrapper{margin:10vh}
-
-.card{
-  border: none;
-  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
- overflow:hidden;
- border-radius:20px;
- min-height:450px;
-   box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
-
- @media (max-width: 768px) {
-  min-height:350px;
-}
-
-@media (max-width: 420px) {
-  min-height:300px;
-}
-
- &.card-has-bg{
- transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-  background-size:120%;
-  background-repeat:no-repeat;
-  background-position: center center;
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: inherit;
-    -webkit-filter: grayscale(1);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);}
-
-  &:hover {
-    transform: scale(0.98);
-     box-shadow: 0 0 5px -2px rgba(0,0,0,0.3);
-    background-size:130%;
-     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-
-    .card-img-overlay {
-      transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-      background: rgb(255,186,33);
-     background: linear-gradient(0deg, rgba(255,186,33,0.5) 0%, rgba(255,186,33,1) 100%);
-     }
-  }
-}
- .card-footer{
-  background: none;
-   border-top: none;
-    .media{
-     img{
-       border:solid 3px rgba(255,255,255,0.3);
-     }
-   }
- }
-  .card-title{font-weight:800}
- .card-meta{color:rgba(0,0,0,0.3);
-  text-transform:uppercase;
-   font-weight:500;
-   letter-spacing:2px;}
- .card-body{ 
-   transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
- 
-
-  }
- &:hover {
-   .card-body{
-     margin-top:30px;
-     transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-   }
- cursor: pointer;
- transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-}
- .card-img-overlay {
-  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
- background: rgb(255,186,33);
-background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(255,186,33,1) 100%);
-}
-}
-@media (max-width: 767px){
   
-}
-
-  </style>
   <!--css-->
   <!--new card-->
-
 
   <main id="main">
 
@@ -395,8 +177,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
               <h4 class="title">Lorem Ipsum</h4>
               <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint
                 occaecati cupiditate non provident</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a>
+              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <!-- End Service Item -->
@@ -407,8 +188,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
               <h4 class="title">Dolor Sitema</h4>
               <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                 commodo consequat tarad limino ata</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a>
+              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -418,8 +198,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
               <h4 class="title">Sed ut perspiciatis</h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                 fugiat nulla pariatur</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
-                  class="bi bi-arrow-right"></i></a>
+              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -731,8 +510,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
                 <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
@@ -749,8 +527,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
                 <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
@@ -767,8 +544,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
                 <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
@@ -785,8 +561,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
                 <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
@@ -803,8 +578,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
                 <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
@@ -839,8 +613,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
 
               <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                     <i class="bi bi-question-circle question-icon"></i>
                     Non consectetur a erat nam at lectus urna duis?
                   </button>
@@ -855,8 +628,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
 
               <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                     <i class="bi bi-question-circle question-icon"></i>
                     Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
                   </button>
@@ -872,8 +644,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
 
               <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                     <i class="bi bi-question-circle question-icon"></i>
                     Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
                   </button>
@@ -890,8 +661,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
 
               <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
                     <i class="bi bi-question-circle question-icon"></i>
                     Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
                   </button>
@@ -908,8 +678,7 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
 
               <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq-content-5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
                     <i class="bi bi-question-circle question-icon"></i>
                     Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
                   </button>
@@ -1004,9 +773,118 @@ background: linear-gradient(0deg, rgba(255,186,33,0.3785889355742297) 0%, rgba(2
 
   </footer><!-- End Footer -->
   <!-- End Footer -->
+  <style>
+    h1 {
+      color: #fff;
+    }
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+    .lead {
+      color: #aaa;
+    }
+
+    .wrapper {
+      margin: 10vh
+    }
+
+    .card {
+      border: none;
+      transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+      overflow: hidden;
+      border-radius: 20px;
+      min-height: 450px;
+      box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+
+      @media (max-width: 768px) {
+        min-height: 350px;
+      }
+
+      @media (max-width: 420px) {
+        min-height: 300px;
+      }
+
+      &.card-has-bg {
+        transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+        background-size: 120%;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: inherit;
+          -webkit-filter: grayscale(1);
+          -moz-filter: grayscale(100%);
+          -ms-filter: grayscale(100%);
+          -o-filter: grayscale(100%);
+          filter: grayscale(100%);
+        }
+
+        &:hover {
+          transform: scale(0.98);
+          box-shadow: 0 0 5px -2px rgba(0, 0, 0, 0.3);
+          background-size: 130%;
+          transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+
+          .card-img-overlay {
+            transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+            background: rgb(255, 186, 33);
+            background: linear-gradient(0deg, rgba(255, 186, 33, 0.5) 0%, rgba(255, 186, 33, 1) 100%);
+          }
+        }
+      }
+
+      .card-footer {
+        background: none;
+        border-top: none;
+
+        .media {
+          img {
+            border: solid 3px rgba(255, 255, 255, 0.3);
+          }
+        }
+      }
+
+      .card-title {
+        font-weight: 800
+      }
+
+      .card-meta {
+        color: rgba(0, 0, 0, 0.3);
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 2px;
+      }
+
+      .card-body {
+        transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+
+
+      }
+
+      &:hover {
+        .card-body {
+          margin-top: 30px;
+          transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        cursor: pointer;
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .card-img-overlay {
+        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        background: rgb(255, 186, 33);
+        background: linear-gradient(0deg, rgba(255, 186, 33, 0.3785889355742297) 0%, rgba(255, 186, 33, 1) 100%);
+      }
+    }
+
+    @media (max-width: 767px) {}
+  </style>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
 

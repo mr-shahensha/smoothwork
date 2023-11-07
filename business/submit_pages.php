@@ -10,7 +10,7 @@ function array_except($array, $keys)
 	return array_diff_key($array, array_flip((array) $keys));
 }
 if ($page_nm == "empsetup.php") {
-	$_POST["eby"] = $Members->User_Details->name;
+	$_POST["eby"] = $Members->User_Details->username;
 }else{
 	$_POST["eby"] = $Members->User_Details->username;
 }
@@ -102,7 +102,9 @@ if ($page_nm == "empsetup.php") {
 	}
 	$comnm=$_POST["eby"];
 
-	$_POST['eid']='smw'.$newDate.$mmcount;
+	$bnm=$Members->User_Details->name;
+	$three = substr($bnm, 0, 3);
+	$_POST['eid']=$three.$newDate.$mmcount.date('y').date('m').date('d');
 }
 
 $msg = "";
@@ -140,7 +142,7 @@ if ($msg == "") {
 	if ($page_nm == "empsetup.php") {
 		$_P['username']=$_POST['eid'];
 		$_P['password']=$_POST['enum'];
-		$_P['name']=$_POST['enm'];
+		$_P['name']=$Members->User_Details->name;;
 		$_P['fnm']=$_POST['enm'];
 		$_P['mob']=$_POST['enum'];
 		$_P['userlevel']='10';
