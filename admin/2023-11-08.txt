@@ -1,0 +1,28 @@
+Time : 12:12:42
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'confopas' in 'field list'
+Raw SQL : INSERT INTO main_customer_setup (custnm,custnum,custeml,custadrs,logpas,confopas,edt,edtm,cust_id) VALUES (:custnm,:custnum,:custeml,:custadrs,:logpas,:confopas,:edt,:edtm,:cust_id)
+/shahensha/smoothwork/submit_pages.php
+
+Time : 11:53:12
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'confopas' in 'field list'
+Raw SQL : INSERT INTO main_customer_setup (custnm,custnum,custeml,custadrs,logpas,confopas,edt,edtm,cust_id) VALUES (:custnm,:custnum,:custeml,:custadrs,:logpas,:confopas,:edt,:edtm,:cust_id)
+/shahensha/smoothwork/submit_pages.php
+
+Time : 11:53:03
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE sl > ?' at line 1
+Raw SQL : SELECT count(*) FROM  WHERE sl > :sl    
+/shahensha/smoothwork/submit_pages.php
+
+Time : 11:52:35
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'confopas' in 'field list'
+Raw SQL : INSERT INTO main_customer_setup (custnm,custnum,custeml,custadrs,logpas,confopas,edt,edtm,cust_id) VALUES (:custnm,:custnum,:custeml,:custadrs,:logpas,:confopas,:edt,:edtm,:cust_id)
+/shahensha/smoothwork/submit_pages.php
+
+Time : 11:52:18
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE sl > ?' at line 1
+Raw SQL : SELECT count(*) FROM  WHERE sl > :sl    
+/shahensha/smoothwork/submit_pages.php
+
+Time : 11:51:40
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'custnm' in 'field list'
+Raw SQL : INSERT INTO main_service_provider (custnm,custnum,custeml,custadrs,logpas,confopas,edt,edtm,bissid) VALUES (:custnm,:custnum,:custeml,:custadrs,:logpas,:confopas,:edt,:edtm,:bissid)

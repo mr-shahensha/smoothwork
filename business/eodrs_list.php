@@ -73,8 +73,16 @@ $bdt = $_REQUEST['bdt'];
 
                         ?></td>
                     <td>
-                        From Time : <?php echo $value['ftm']; ?> <br>
-                        To Time : <?php echo $value['ttm']; ?>
+                        From Time : <?php
+                        $datetimeString = $value['ftm']; 
+                        $dateTime = new DateTime($datetimeString);
+                        $ftm = $dateTime->format('h:i A');
+                        echo $ftm; ?> <br>
+                        To Time : <?php 
+                         $datetimeString2 = $value['ttm']; 
+                         $dateTime2 = new DateTime($datetimeString2);
+                         $ttm = $dateTime2->format('h:i A');
+                        echo $ttm; ?>
                     </td>
                     <td>
                         <div id="acrj<?php echo $sl; ?>">

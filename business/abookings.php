@@ -68,7 +68,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                     <!-- /.box-header -->
                     <!-- form start -->
                     <div class="box-body">
-                        <form class="form-bordered" action="submit_pages.php" method="POST">
+                        <form class="form-bordered" action="all_submit_page2.php" method="POST">
 
                             <div class="row">
                                 <div class="form-group col-md-12">
@@ -79,7 +79,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Service name :
                                             </b>
                                         </label>
-                                        <select name="servnm" class="form-control" size="1" id="servnm" tabindex="2" onchange="ast(this.value)">
+                                        <select name="servnm" id="servnm" class="form-control" size="1" id="servnm" tabindex="2" onchange="ast(this.value),show()">
                                             <option value="">---SELECT---</option>
                                             <?php
 
@@ -108,7 +108,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                             </b>
                                         </label>
                                         <div id="showast">
-                                            <select name="assign" class="form-control" size="1" id="assign" tabindex="2">
+                                            <select name="assign" id="assign" class="form-control" size="1" id="assign" tabindex="2">
                                                 <option value="">---SELECT---</option>
                                             </select>
                                         </div>
@@ -120,7 +120,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                                 <font color="#ed2618"></font>Date:
                                             </b>
                                         </label>
-                                        <input type="date" id="bdt" name="bdt" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+                                        <input type="date" id="bdt" name="bdt" class="form-control" value="<?php echo date('Y-m-d'); ?>" onchange="show()">
 
                                     </div>
                                 </div>
@@ -231,6 +231,18 @@ function searchForId($id, $array, $chkfld, $sendfld)
                     <!-- /.box-header -->
                     <!-- form start -->
                     <div class="box-body" id="show">
+                        <table class="table">
+                            <tr>
+                                <th width="10%">SL</th>
+                                <th width="15%">Assign to</th>
+                                <th width="15%">Service name</th>
+                                <th width="10%">From time</th>
+                                <th width="10%">To time</th>
+                                <th width="10%">Price</th>
+                                <th width="10%">Purchased by </th>
+                                <th width="20%">Action</th>
+                            </tr>
+                        </table>
                     </div>
                     <!-- /.box body -->
                 </div>
@@ -248,7 +260,15 @@ function searchForId($id, $array, $chkfld, $sendfld)
 
 </div>
 <!-- ./wrapper -->
+<style>
+	th {
+		text-align: center;
+	}
 
+	td {
+		text-align: center;
+	}
+</style>
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -291,10 +311,16 @@ function searchForId($id, $array, $chkfld, $sendfld)
 <script src="chosen.jquery.js" type="text/javascript"></script>
 <script src="prism.js" type="text/javascript" charset="utf-8"></script>
 <script>
-
-
     function show() {
-        $('#show').load("abookings_list.php").fadeIn('fast');
+        var servnm = document.getElementById('servnm').value;
+        var bdt = document.getElementById('bdt').value;
+        var assign = document.getElementById('assign').value;
+        if (assign == '') {
+            $('#show').load("abookings_list.php?servnm=" + servnm + "&bdt=" + bdt + "&assign=").fadeIn('fast');
+        }
+        if (assign != '') {
+            $('#show').load("abookings_list.php?servnm=" + servnm + "&bdt=" + bdt + "&assign=" + assign).fadeIn('fast');
+        }
     }
 
     function ast(srv) {

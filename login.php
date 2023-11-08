@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <?php $pgnm="Login";?>
-  <title>SmoothWork /<?php echo $pgnm;?></title>
+  <?php $pgnm = "Login"; ?>
+  <title>SmoothWork /<?php echo $pgnm; ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -81,7 +81,7 @@
                 <div class="form-group d-flex">
                   <input type="password" class="form-control rounded-left" placeholder="Password" required>
                 </div>
-				<div class="form-group">
+                <div class="form-group">
                   <button type="submit" class="btn btn-primary rounded submit p-3 px-5"><b>Get Started</b></button>
                 </div>
                 <div class="form-group d-md-flex" style="margin-top:90px;">
@@ -95,7 +95,7 @@
                     <a href="#">Forgot Password</a>
                   </div>
                 </div>
-                <a style="cursor:pointer;" href="#" class="btn btn-primary btn-lg " tabindex="-1" role="button" aria-disabled="true">Sign up as Customer</a>
+                <a style="cursor:pointer;" href="custsignup.php" class="btn btn-primary btn-lg " tabindex="-1" role="button" aria-disabled="true">Sign up as Customer</a>
                 <a href="bissignup.php" class="btn btn-secondary btn-lg" tabindex="-1" role="button" aria-disabled="true">Sign up as Business</a>
 
               </form>

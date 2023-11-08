@@ -1,0 +1,10 @@
+Time : 09:53:16
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'sl > ?   ORDER BY sl ASC' at line 1
+Raw SQL : SELECT * FROM main_order_cart WHERE servnm = :servnm   sl > :sl   ORDER BY sl ASC
+/shahensha/smoothwork/business/abookings_list.php?servnm=s1&bdt=2023-11-08&assign=
+
+Time : 07:33:18
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '() VALUES ()' at line 1
+Raw SQL : INSERT INTO  () VALUES ()
+/shahensha/smoothwork/business/abookings_edt.php?sl=4&stat=2
+

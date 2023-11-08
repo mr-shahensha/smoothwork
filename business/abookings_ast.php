@@ -9,7 +9,7 @@ if ($s_id != "") {
 
 
 ?>
-<select name="assign" class="form-control" size="1" id="assign" tabindex="2">
+<select name="assign" class="form-control" size="1" id="assign" tabindex="2" onchange="show()">
     <option value="">---SELECT---</option>
     <?php
     $fld1['s_id'] = $s_id ;
@@ -52,7 +52,7 @@ if ($s_id != "") {
 <?php
 }else{
   ?>
-<select name="assign" class="form-control" size="1" id="assign" tabindex="2">
+<select name="assign" class="form-control" size="1" id="assign" tabindex="2" onchange="show()">
                                                 <option value="">---SELECT---</option>
                                             </select>
   <?php

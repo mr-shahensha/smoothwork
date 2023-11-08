@@ -39,19 +39,7 @@ if ($page_nm  == "service_setup.php") {
 
 	$_POST['sttm'] = $timeFormatted2;
 }
-if ($page_nm  == "abookings.php") {
-	$time = $_POST['ftm1'];
-	$timestamp = strtotime($time);
-	$timeFormatted = date("h:i A", $timestamp);
 
-	$_POST['ftm'] = $timeFormatted;
-	//sttm
-	$time2 = $_POST['ttm1'];
-	$timestamp2 = strtotime($time2);
-	$timeFormatted2 = date("h:i A", $timestamp2);
-
-	$_POST['ttm'] = $timeFormatted2;
-}
 
 if ($page_nm == "bissignup.php") {
 
@@ -92,9 +80,7 @@ $mcount = $list->row_count_custom($fld1, $op1, '', array('sl' => 'ASC'));
 if ($page_nm  == "service_setup.php") {
 $_POST['s_id']='s'.$count;
 }
-if ($page_nm  == "abookings.php") {
-$_POST['cart_id']='crt'.$count;
-}
+
 if ($page_nm == "empsetup.php") {
 	$newDate = date("y", strtotime($_POST['jdt']));
 	if(strlen($mcount)=='1'){
