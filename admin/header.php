@@ -1,3 +1,16 @@
+<?php 
+$Members  = new isLogged(1);
+
+if ($Members->User_Details->userlevel > 0) {
+  include "logoff.php";
+  //redirect to the login page
+  //header("Location: ../login.php");
+  //die(include("login.php"));
+  
+} 
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>

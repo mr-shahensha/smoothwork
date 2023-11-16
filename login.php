@@ -1,3 +1,112 @@
+<?PHP
+require_once("include.class.php");
+if (isset($_POST["submit"])) {
+    $rememberMe = "";
+    $username11 = $_POST["username"];
+    $password1 = md5($_POST["password"]);
+
+    $fld1['username'] = $username11;
+    $op1['username'] = "=,  ";
+    $list1  = new Init_Table();
+    $list1->set_table("main_signup", "sl");
+    $group = $list1->search_custom($fld1, $op1, '', array('sl' => 'DESC'));
+    foreach ($group as $key => $ptp) {
+        $username1 = $ptp['username'];
+    }
+
+
+
+
+    $SIP = $_SERVER['REMOTE_ADDR'];
+    $dttm = date('Y-m-d H:i:s A');
+    if (isset($_POST["rememberMe"])) {
+        $rememberMe = $_POST["rememberMe"];
+    }
+    $SIP = $_SERVER['REMOTE_ADDR'];
+    if ($rememberMe == "rememberMe") {
+        $rememberMe = "1";
+    } else {
+
+        $rememberMe = "0";
+    }
+
+    $test  = new Init_Table();
+    $test->set_table("main_signup", "username");
+    $test->username = $username1;
+    $test->find();
+    if ($test->variables != "") {
+        if ($test->actnum == "0" && ($test->userlevel == 20)) {
+            if ($test->numloginfail <= 5) {
+                if ($test->pass == $password1) {
+
+                    $test->set_table("main_signup", "username");
+                    $test->username = $username1;
+                    $test->lastlogin = date('Y-m-d H:i:s A');
+                    $test->numloginfail = '0';
+                    $test->Save();
+
+                    session_start();
+                    session_unset();
+                    $_SESSION["pass"] = $password1;
+                    $_SESSION["id"] = $username1;
+                    $_SESSION["lastlog"] = date('Y-m-d H:i:s A');
+
+                    $test->set_table("main_log", "sl");
+                    $test->username = $username1;
+                    $test->ip = $SIP;
+                    $test->intime = $dttm;
+                    $test->laccessed = $dttm;
+                    $test->Create();
+                    if ($rememberMe == "1") {
+                        setcookie("rememberCookieUname", $username1, (time() + 604800));
+                        setcookie("rememberCookiePassword", md5($password1), (time() + 604800));
+                    }
+                    $_SESSION["chkssn"] = date('Y-m-d');
+                    header("Location: index.php");
+                    
+
+                } else {
+
+?>
+                    <script>
+                        alert("Password Missmatched.....");
+                        window.document.location = "login.php";
+                    </script>
+                <?php
+                    //die(header("location:login.php"));
+                }
+            } else {
+
+                ?>
+                <script>
+                    alert("Account Under Attack.....");
+                    window.document.location = "login.php";
+                </script>
+            <?php
+                //die(header("location:login.php"));
+            }
+        } else {
+
+            ?>
+            <script>
+                alert("Account Not Activated.....");
+                window.document.location = "login.php";
+            </script>
+        <?php
+            //die(header("location:login.php"));
+        }
+    } else {
+        ?>
+        <script>
+            alert("Data Not Found.....");
+            window.document.location = "login.php";
+        </script>
+<?php
+        //die(header("location:login.php"));
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +167,7 @@
       <nav>
         <div class="container">
           <ol>
-            <li><a href="index.php">Home</a></li>
+            <li><a href="home.php">Home</a></li>
             <li>Login </li>
           </ol>
         </div>
@@ -74,15 +183,15 @@
                 <i class="bi bi-person" style="color:#fff; font-size:45px;"></i>
               </div>
               <h3 class="text-center mb-4">Have an account?</h3>
-              <form action="#" class="login-form">
+              <form action="login.php" class="login-form" method="post">
                 <div class="form-group">
-                  <input type="text" class="form-control rounded-left" placeholder="Username" required>
+                  <input type="text" class="form-control rounded-left" placeholder="Username" name="username" required>
                 </div>
                 <div class="form-group d-flex">
-                  <input type="password" class="form-control rounded-left" placeholder="Password" required>
+                  <input type="password" class="form-control rounded-left" placeholder="Password" name="password" required>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary rounded submit p-3 px-5"><b>Get Started</b></button>
+                  <input type="submit" name="submit" class="btn btn-primary rounded submit p-3 px-5" value="Get Started">
                 </div>
                 <div class="form-group d-md-flex" style="margin-top:90px;">
                   <div class="w-50">

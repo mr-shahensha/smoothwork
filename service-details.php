@@ -1,11 +1,26 @@
+<?php
+include "include.class.php";
+include "back.php";
+$sl = base64_decode($_REQUEST['sl']);
+$fld2['sl'] = $sl;
+$op2['sl'] = "=,";
+$list2  = new Init_Table();
+$list2->set_table("main_service_setup", "sl");
+$row2 = $list2->search_custom($fld2, $op2, '', array('sl' => 'ASC'));
+$pdo2 = new MainPDO();
+foreach ($row2 as $value2) {
+}
+$sl2 = $value2['sl'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Logis Bootstrap Template - Service Details</title>
+  <?php $pgnm = "Services Details"; ?>
+  <title>SmoothWork /<?php echo $pgnm; ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -38,47 +53,15 @@
   ======================================================== -->
 </head>
 
+
 <body>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>Logis</h1>
-      </a>
+      <?php include("menu2.php"); ?>
 
-      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="get-a-quote" href="get-a-quote.html">Get a Quote</a></li>
-        </ul>
-      </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
@@ -108,49 +91,64 @@
       </nav>
     </div><!-- End Breadcrumbs -->
 
-    <!-- ======= Service Details Section ======= -->
-    <section id="service-details" class="service-details">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4">
-            <div class="services-list">
-              <a href="#" class="active">Storage</a>
-              <a href="#">Logistics</a>
-              <a href="#">Cargo</a>
-              <a href="#">Trucking</a>
-              <a href="#">Packaging</a>
-              <a href="#">Warehousing</a>
-            </div>
-
-            <h4>Enim qui eos rerum in delectus</h4>
-            <p>Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi rerum.</p>
+    </section><!-- End Call To Action Section -->
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+          <div class="col-md-5">
+            <img src="assets/img/features-1.jpg" class="img-fluid" alt="">
           </div>
-
-          <div class="col-lg-8">
-            <img src="assets/img/service-details.jpg" alt="" class="img-fluid services-img">
-            <h3>Temporibus et in vero dicta aut eius lidero plastis trand lined voluptas dolorem ut voluptas</h3>
-            <p>
-              Blanditiis voluptate odit ex error ea sed officiis deserunt. Cupiditate non consequatur et doloremque consequuntur. Accusantium labore reprehenderit error temporibus saepe perferendis fuga doloribus vero. Qui omnis quo sit. Dolorem architecto eum et quos deleniti officia qui.
+          <div class="col-md-7">
+            <h3><?php echo $value2['snm']; ?></h3>
+            <p class="fst-italic">
+              Description : <?php echo $value2['sdsc']; ?>
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt voluptatibus.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
+              <li><i class="bi bi-check"></i>Price : <?php echo $value2['sprc']; ?> .RS</li>
+              <li><i class="bi bi-check"></i> Starting time : <?php echo $value2['sftm']; ?> &nbsp; &nbsp; &nbsp; End time : <?php echo $value2['sttm']; ?></li>
+              <li><i class="bi bi-check"></i> Duration : <?php echo $value2['sdr']; ?> minutes</li>
+              <li><i class="bi bi-check"></i> Service provider :
+                <select class="form-control" name="assign" id="assign" style="width:200px;">
+                  <option value="">---SELECT---</option>
+                  <?php
+                  $string = $value2['sast'];
+                  $nsast = array();
+                  $nsast = explode(",", $string, 2);
+                  $i = sizeof($nsast);
+                  $x = 0;
+                  while ($x < $i) {
+                  ?>
+                    <option value="<?php echo $nsast[$x]; ?>">
+                      <?php
+                      $fld20['eid'] = $nsast[$x];
+                      $op20['eid'] = "=, ";
+                      $list20  = new Init_Table();
+                      $list20->set_table("main_employee_setup", "sl");
+                      $row20 = $list20->search_custom($fld20, $op20, '', array('sl' => 'ASC'));
+                      $pdo20 = new MainPDO();
+                      foreach ($row20 as $value20) {
+                      }
+                      echo $value20['enm'];
+                      ?></option>
+                  <?php
+                    $x++;
+                  }
+                  ?>
+                </select>
+              </li>
             </ul>
-            <p>
-              Est reprehenderit voluptatem necessitatibus asperiores neque sed ea illo. Deleniti quam sequi optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
-            </p>
-            <p>
-              Sunt rem odit accusantium omnis perspiciatis officia. Laboriosam aut consequuntur recusandae mollitia doloremque est architecto cupiditate ullam. Quia est ut occaecati fuga. Distinctio ex repellendus eveniet velit sint quia sapiente cumque. Et ipsa perferendis ut nihil. Laboriosam vel voluptates tenetur nostrum. Eaque iusto cupiditate et totam et quia dolorum in. Sunt molestiae ipsum at consequatur vero. Architecto ut pariatur autem ad non cumque nesciunt qui maxime. Sunt eum quia impedit dolore alias explicabo ea.
-            </p>
+            <button style="width: 70%; margin-left: 100px" class="btn btn-primary btn-lg" onclick="cartnow('<?php echo $sl2; ?>','<?php echo  $_SESSION['id']; ?>')">Add to cart</button>
           </div>
+        </div><!-- Features Item -->
+        <div class="container" style="margin-left: 600px;">
+          <h4>
+            <div id="done"></div>
 
+          </h4>
         </div>
+    </section><!-- End Popular Section -->
 
-      </div>
-    </section><!-- End Service Details Section -->
 
   </main><!-- End #main -->
 
@@ -236,6 +234,7 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -243,3 +242,12 @@
 </body>
 
 </html>
+<script>
+  function cartnow(sl, id) {
+    var assign = document.getElementById('assign').value;
+    if(assign==''){
+      alert('chose service provider')
+    }
+    $('#done').load('carts.php?sl=' + sl + '&id=' + id + '&assign=' + assign).fadeIn('fast');
+  }
+</script>

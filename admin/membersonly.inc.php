@@ -63,6 +63,11 @@ class isLogged {
 		$rtest->username = $rememberCookiePassword;		
 		$rtest->mpass = $rememberCookieUname;		
 		$rtest->find();
+
+
+
+
+
 		if($rtest->variables!="")
 		{
 		$this->User_Details=$test;
@@ -79,26 +84,38 @@ class isLogged {
 		}
 		}
 
+
+
+
+
 		}
 		else
 		{
-			die(include("login.php"));
+			die(include("home.php"));
 		}
 		}
 		else
 		{
-			die(include("login.php"));
+			die(include("home.php"));
 		}
 		}
 		}
 		}		
 		else
 		{
-			die(include("login.php"));
+			die(include("home.php"));
 		}
+
+
+
+
+
+
 		}
 		
-		
+	
+
+
 }
 
 
