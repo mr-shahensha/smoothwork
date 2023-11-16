@@ -18,7 +18,7 @@ $fld1['sl'] = '0';
 $op1['sl'] = ">, ";
 
 $list1  = new Init_Table();
-$list1->set_table("main_order_cart", "sl");
+$list1->set_table("main_cart", "sl");
 $row = $list1->search_custom($fld1, $op1, '', array('sl' => 'ASC'));
 $path1 = "";
 ?>

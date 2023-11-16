@@ -1,9 +1,9 @@
 
 <?php
-ini_set('session.save_path', 'session');
-
+    ini_set('session.save_path', 'session');
 
 require("create_log.php");
+
 class ONS_PDO
 {
     public $servername;

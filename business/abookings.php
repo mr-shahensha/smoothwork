@@ -212,7 +212,7 @@ function searchForId($id, $array, $chkfld, $sendfld)
                                     <input type="submit" class="btn btn-success" value="Add to cart">
                                 </div>
                             </div>
-                            <input type="hidden" name="table_name" value="main_order_cart">
+                            <input type="hidden" name="table_name" value="main_cart">
                             <input type="hidden" name="page_name" value="abookings.php">
 
                         </form>

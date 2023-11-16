@@ -50,12 +50,17 @@ if ($page_nm  == "abookings.php") {
 	$fld['sl'] = "0";
 	$op['sl'] = ">,  ";
 }
-$fld1['sl'] = "0";
-$op1['sl'] = ">,  ";
+
 $list  = new Init_Table();
 $list->set_table($tbl_nm, "sl");
 $count = $list->row_count_custom($fld, $op, '', array('sl' => 'ASC'));
-$mcount = $list->row_count_custom($fld1, $op1, '', array('sl' => 'ASC'));
+
+$fld1['sl'] = "0";
+$op1['sl'] = ">,  ";
+$list1  = new Init_Table();
+$list1->set_table($tbl_nm, "sl");
+$mcount = $list1->row_count_custom($fld1, $op1, '', array('sl' => 'ASC'));
+
 if(strlen($mcount)=='1'){
 	$nmcount='0000'.$mcount;
 }
@@ -79,8 +84,11 @@ if ($count > 0 && $page_nm  == "abookings.php") {
 if ($msg == "") {
 if ($page_nm  == "abookings.php") {
 	$_POST['cart_id'] = 'crt' . $nmcount;
+	$exception = array('submit_form', 'table_name', 'page_name', 'rttl', 'ftm1', 'ttm1', 'sttl', 'tttl', 'ttl', 'uttl', 'vttl', 'cpass', 'old_pass','eby');
 }
+if ($page_nm  != "abookings.php") {
 	$exception = array('submit_form', 'table_name', 'page_name', 'rttl', 'ftm1', 'ttm1', 'sttl', 'tttl', 'ttl', 'uttl', 'vttl', 'cpass', 'old_pass');
+}
 	$field = array_except($_POST, $exception);
 	//print_r($_POST);
 	$pdo_obj  = new Init_Table();

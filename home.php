@@ -111,9 +111,6 @@
       </div>
       <div class="row">
         <?php
-        ini_set("display_errors", "1");
-        error_reporting(E_ALL);
-        include "common.php";
         include "include.class.php";
         $fld1['sl'] = '0';
         $op1['sl'] = ">, ";

@@ -1,0 +1,13 @@
+Time : 10:32:47
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE sl > ?' at line 1
+Raw SQL : SELECT count(*) FROM  WHERE sl > :sl    
+/shahensha/smoothwork/business/all_submit_page2.php
+
+Time : 10:31:25
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'eby' in 'field list'
+Raw SQL : INSERT INTO main_cart (servnm,assign,bdt,price,prchby,prchnum,eby,edt,edtm,ftm,ttm,cart_id) VALUES (:servnm,:assign,:bdt,:price,:prchby,:prchnum,:eby,:edt,:edtm,:ftm,:ttm,:cart_id)
+/shahensha/smoothwork/business/all_submit_page2.php
+
+Time : 10:21:24
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'sl > ?' at line 1
+Raw SQL : SELECT count(*) FROM main_cart WHERE bdt = :bdt  and assign = :assign  and (ftm <='2023-11-16 08:52:00' and ttm>='2023-11-16 08:52:00') or (ftm <='2023-11-16 10:00:00' and ttm>='2023-11-16 10:00:00') sl > :sl    

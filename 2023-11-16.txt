@@ -1,0 +1,68 @@
+Time : 12:28:13
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'crt_id' in 'field list'
+Raw SQL : UPDATE main_cart SET crt_id = :crt_id,stat = :stat
+/shahensha/smoothwork/rmvcrt.php?crt=cart0004
+
+Time : 12:27:59
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'crt' in 'where clause'
+Raw SQL : UPDATE main_cart SET stat = :stat WHERE crt= :crt
+/shahensha/smoothwork/rmvcrt.php?crt=cart0004
+
+Time : 07:16:02
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : SELECT * FROM main_cart WHERE servnm = :servnm  and assign = :assign  and bdt = :bdt   ORDER BY ttm DESC limit
+/shahensha/smoothwork/carts.php?sl=s2&id=8768009813&assign=Mic2302
+
+Time : 07:15:58
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : SELECT * FROM main_cart WHERE servnm = :servnm  and assign = :assign  and bdt = :bdt   ORDER BY ttm DESC limit
+/shahensha/smoothwork/carts.php?sl=s2&id=8768009813&assign=Mic2302
+
+Time : 07:14:19
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : SELECT * FROM main_cart WHERE servnm = :servnm  and assign = :assign  and bdt = :bdt   ORDER BY ttm DESC limit
+/shahensha/smoothwork/carts.php?sl=s2&id=8768009813&assign=Mic2302
+
+Time : 07:14:19
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : SELECT * FROM main_cart WHERE servnm = :servnm  and assign = :assign  and bdt = :bdt   ORDER BY ttm DESC limit
+/shahensha/smoothwork/carts.php?sl=s2&id=8768009813&assign=Mic2302
+
+Time : 07:13:57
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+Raw SQL : SELECT * FROM main_cart WHERE servnm = :servnm  and assign = :assign  and bdt = :bdt   ORDER BY ttm DESC limit
+/shahensha/smoothwork/carts.php?sl=s2&id=8768009813&assign=Mic2302
+
+Time : 06:13:50
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null
+Raw SQL : INSERT INTO main_cart (prchby,servnm,assign,bdt,edt,edtm,price) VALUES (:prchby,:servnm,:assign,:bdt,:edt,:edtm,:price)
+/shahensha/smoothwork/carts.php?sl=1&id=8768009813&assign=smw2300
+
+Time : 06:13:44
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null
+Raw SQL : INSERT INTO main_cart (prchby,servnm,assign,bdt,edt,edtm,price) VALUES (:prchby,:servnm,:assign,:bdt,:edt,:edtm,:price)
+/shahensha/smoothwork/carts.php?sl=1&id=8768009813&assign=smw2300
+
+Time : 06:13:42
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null
+Raw SQL : INSERT INTO main_cart (prchby,servnm,assign,bdt,edt,edtm,price) VALUES (:prchby,:servnm,:assign,:bdt,:edt,:edtm,:price)
+/shahensha/smoothwork/carts.php?sl=1&id=8768009813&assign=
+
+Time : 06:11:55
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null
+Raw SQL : INSERT INTO main_cart (prchby,servnm,assign,bdt,edt,edtm,price) VALUES (:prchby,:servnm,:assign,:bdt,:edt,:edtm,:price)
+/shahensha/smoothwork/carts.php?sl=1&id=8768009813&assign=smw2300
+
+Time : 06:11:34
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null
+Raw SQL : INSERT INTO main_cart (prchby,servnm,assign,bdt,edt,edtm,price) VALUES (:prchby,:servnm,:assign,:bdt,:edt,:edtm,:price)
+/shahensha/smoothwork/carts.php?sl=1&id=8768009813&assign=smw2300
+
+Time : 06:11:34
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null
+Raw SQL : INSERT INTO main_cart (prchby,servnm,assign,bdt,edt,edtm,price) VALUES (:prchby,:servnm,:assign,:bdt,:edt,:edtm,:price)
+/shahensha/smoothwork/carts.php?sl=1&id=8768009813&assign=smw2300
+
+Time : 06:11:32
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'price' cannot be null
+Raw SQL : INSERT INTO main_cart (prchby,servnm,assign,bdt,edt,edtm,price) VALUES (:prchby,:servnm,:assign,:bdt,:edt,:edtm,:price)

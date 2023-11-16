@@ -180,7 +180,7 @@ include "back.php";
           $row2 = $list2->search_custom($fld2, $op2, '', array('count' => 'DESC'));
           $pdo2 = new MainPDO();
           foreach ($row2 as $value2) {
-            $sl2 = $value2['sl'];
+            $sl2 = $value2['s_id'];
           ?>
 
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">

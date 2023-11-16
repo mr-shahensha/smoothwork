@@ -10,7 +10,7 @@
         <ul>
           <li><a href="index.php" <?php if($pgnm=="home"){?> class="active"<?php }?>>Home</a></li>
           <li><a href="services.php" <?php if($pgnm=="Services"){?> class="active"<?php }?>>Services</a></li>
-          <li><a href="carts.php" <?php if($pgnm=="Services"){?> class="active"<?php }?>>My cart</a></li>
+          <li><a href="mycart.php" <?php if($pgnm=="My cart"){?> class="active"<?php }?>>My cart</a></li>
           <li><a href="bookings.php"<?php if($pgnm=="My bookings"){?> class="active"<?php }?>>My Bookings</a></li>
           <li class="dropdown"><a href="#"><span><?php 
            

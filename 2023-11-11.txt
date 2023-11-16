@@ -1,8 +1,0 @@
-Time : 11:33:13
-SQLSTATE[42S22]: Column not found: 1054 Unknown column 'custnum' in 'where clause'
-Raw SQL : SELECT * FROM main_employee_setup WHERE custnum = :custnum   ORDER BY sl ASC
-/shahensha/smoothwork/carts.php?sl=2&id=8768009813&assign=smw2300
-
-Time : 11:33:08
-SQLSTATE[42S22]: Column not found: 1054 Unknown column 'custnum' in 'where clause'
-Raw SQL : SELECT * FROM main_employee_setup WHERE custnum = :custnum   ORDER BY sl ASC

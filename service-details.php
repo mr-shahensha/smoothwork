@@ -1,16 +1,16 @@
 <?php
 include "include.class.php";
 include "back.php";
-$sl = base64_decode($_REQUEST['sl']);
-$fld2['sl'] = $sl;
-$op2['sl'] = "=,";
+$s_id = base64_decode($_REQUEST['sl']);
+$fld2['s_id'] = $s_id;
+$op2['s_id'] = "=,";
 $list2  = new Init_Table();
 $list2->set_table("main_service_setup", "sl");
 $row2 = $list2->search_custom($fld2, $op2, '', array('sl' => 'ASC'));
 $pdo2 = new MainPDO();
 foreach ($row2 as $value2) {
 }
-$sl2 = $value2['sl'];
+$sl2 = $value2['s_id'];
 
 ?>
 <!DOCTYPE html>
