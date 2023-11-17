@@ -117,19 +117,34 @@ include "back.php";
                         </div>
                         <div class="col-lg-4 d-flex align-items-center justify-content-center">
                             <ul>
-                                <li><i class="bi bi-check"></i> Assign by : <?php echo $value2['assign']; ?></li>
-                                <li><i class="bi bi-check"></i> Booking Date : <?php echo $value2['bdt']; ?></li>
-                                <li><i class="bi bi-check"></i> From time : <?php
-                                                                            $dateTime = new DateTime($value2['ftm']);
-                                                                            $fttm = $dateTime->format('h:i A');
-                                                                            echo $fttm;
-                                                                            ?>
+                                <li><i class="bi bi-check"></i> Assign by :
+                                    <?php
+                                    $fldx['eid'] =  $value2['assign'];
+                                    $opx['eid'] = "=,";
+                                    $listx  = new Init_Table();
+                                    $listx->set_table("main_employee_setup", "sl");
+                                    $rowx = $listx->search_custom($fldx, $opx, '', array('sl' => 'ASC'));
+                                    $pdox = new MainPDO();
+                                    foreach ($rowx as $valuex) {
+                                    }
+
+                                    echo $valuex['enm'];
+                                    ?></li>
+                                <li><i class="bi bi-check"></i> Booking Date :
+                                    <?php echo $value2['bdt']; ?></li>
+                                <li><i class="bi bi-check"></i> From time :
+                                    <?php
+                                    $dateTime = new DateTime($value2['ftm']);
+                                    $fttm = $dateTime->format('h:i A');
+                                    echo $fttm;
+                                    ?>
                                 </li>
-                                <li><i class="bi bi-check"></i> To time : <?php
-                                                                            $dateTime2 = new DateTime($value2['ttm']);
-                                                                            $fttm2 = $dateTime2->format('h:i A');
-                                                                            echo $fttm2;
-                                                                            ?></li>
+                                <li><i class="bi bi-check"></i> To time :
+                                    <?php
+                                    $dateTime2 = new DateTime($value2['ttm']);
+                                    $fttm2 = $dateTime2->format('h:i A');
+                                    echo $fttm2;
+                                    ?></li>
                             </ul>
                             &nbsp;<div id="rmve<?php echo $value2['cart_id']; ?>"><a class="btn btn-sm btn-danger" onclick="rmv('<?php echo $value2['cart_id']; ?>')">Remove</a></div>
                         </div>
@@ -141,7 +156,10 @@ include "back.php";
             </div>
         </section><!-- End Horizontal Pricing Section -->
         <div class="row">
-            <div class="text-center"><a class="btn btn-success btn-lg" onclick="buy()">Buy Now</a></div>
+            <div id="mve<?php echo $_SESSION['id']; ?>">
+                <div class="text-center"><a class="btn btn-success btn-lg" onclick="buy('<?php echo $_SESSION['id']; ?>')">Buy Now</a>
+                </div>
+            </div>
         </div>
     </main><!-- End #main -->
 
@@ -235,11 +253,14 @@ include "back.php";
 <script>
     function rmv(crt) {
         if (confirm('are you sure ?')) {
-            $('#rmve'+crt).load('rmvcrt.php?crt='+crt).fadeIn('fast');
+            $('#rmve' + crt).load('mvcrt.php?crt=' + crt + '&ssn=').fadeIn('fast');
         }
     }
-    function buy(){
-        
+
+    function buy(ssn) {
+        if (confirm('are you sure ?')) {
+            $('#mve' + ssn).load('mvcrt.php?ssn=' + ssn + '&crt=').fadeIn('fast');
+        }
     }
 </script>
 

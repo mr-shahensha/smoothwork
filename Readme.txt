@@ -1,3 +1,3 @@
-Thank you for viewing the repository .
+Thank you for visiting the repository .
 :)
 - Shahensha
