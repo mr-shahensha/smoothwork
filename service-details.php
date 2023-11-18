@@ -248,6 +248,6 @@ $sl2 = $value2['s_id'];
     if(assign==''){
       alert('chose service provider')
     }
-    $('#done').load('carts.php?sl=' + sl + '&id=' + id + '&assign=' + assign).fadeIn('fast');
+    $('#done').load('cartscopy.php?sl=' + sl + '&id=' + id + '&assign=' + assign).fadeIn('fast');
   }
 </script>

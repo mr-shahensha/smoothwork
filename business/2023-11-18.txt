@@ -1,0 +1,13 @@
+Time : 10:45:37
+SQLSTATE[HY000] [2002] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+/shahensha/smoothwork/business/
+
+Time : 10:45:33
+SQLSTATE[HY000] [2002] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+/shahensha/smoothwork/business/abookings.php
+
+Time : 10:44:44
+SQLSTATE[HY000] [2002] Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
